@@ -10,7 +10,7 @@
 #
 ### Improved terse idiom moving from C to C++ with little change to the machine code
 
-linked_list.c | linked_list.cpp
+[linked_list.c](./linked_list.c) | [linked_list.cpp](./linked_list.cpp)
 #
 ### The intricacies and differences of C++ compared to the likes of Java
 * Commpilation (JIT vs direct compilation)
