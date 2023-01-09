@@ -3,9 +3,9 @@ My Journey through C++ High Performance 2nd Edition (_Björn Andrist, Viktor Seh
 
 ## Highlights from:
 
-* ### [Chapter 1 - "A Brief Introduction to C++"](/Chapter%201%20-%20A%20Brief%20Introduction%20to%20C++)
-* ### Chapter 2 - "Essential C++ Techniques"
-* ### Chapter 3 - "Analysing and Measuring Performance"
+* ### [Chapter 1 - "A Brief Introduction to C++"](./Chapter%201%20-%20A%20Brief%20Introduction%20to%20C++)
+* ### [Chapter 2 - "Essential C++ Techniques"](Chapter%202%20-%20Essential%20C++%20Techniques)
+* ### [Chapter 3 - "Analysing and Measuring Performance"](Chapter%203%20-%20Analysing%20and%20Measuring%20Performance)
 * ### Chapter 4 - "Data Structures"
 * ### Chapter 5 - "Algorithms"
 * ### Chapter 6 - "Ranges and Views"
