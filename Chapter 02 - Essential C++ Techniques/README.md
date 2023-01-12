@@ -25,3 +25,8 @@ auto lambda = [v](auto v0, auto v1) {
 }; // why comment "int"? why not write it? do we want int? what if we wanted std::size_t or a short?
 ```
 Given that deterministic destruction was praised by developers for being predictable, can we really say the same for `auto`?
+
+`decltype(auto)` is useful for reducing repitition in function return types, although I would usually see this is a trailing return type capacity.
+#
+### Const propagation for pointers
+We can use `std::experimental::propogate_const` to _"generate compilation errors when trying mutate an object inside a const function"_ – pg. 23
