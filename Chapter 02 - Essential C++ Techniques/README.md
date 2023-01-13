@@ -50,7 +50,7 @@ Before move semantics, this was usually referred to as the rule of 3:
 
 With move semantics, now have:
 * Move constructor
-* Move-assignement operator
+* Move-assignment operator
 
 They are marked as `noexcept` _"because, as opposed to copy constructor / copy-assignment operator, they do not allocate memory or do something that might throw exceptions"_ pg. 28
 
