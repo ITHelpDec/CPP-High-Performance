@@ -48,13 +48,20 @@ Before move semantics, this was usually referred to as the rule of 3:
 * Copy-assignment operator, and
 * Destructor
 
-With move semantics, now have:
+With move semantics, we now have:
 * Move constructor
 * Move-assignment operator
 
-They are marked as `noexcept` _"because, as opposed to copy constructor / copy-assignment operator, they do not allocate memory or do something that might throw exceptions"_ pg. 28
+These are marked as `noexcept` _"because, as opposed to copy constructor / copy-assignment operator, they do not allocate memory or do something that might throw exceptions"_ pg. 28
 
-My only criticisms on this section would be the lack of protection against self-assignment in copy-/move-assignment operations, and the preference of using std::exchange over std::move on non-class members.
+My only criticisms on this section would be the lack of protection against self-assignment in copy-/move-assignment operations, and the addition of a preference to using std::exchange over std::move on non-class members.
 
 [rule_of_five.cpp](rule_of_five.cpp)
 #
+### Named variables an rvalues
+These were covered extensively in C++ Primer, but are instrumental in taking advantage of copy and move semantics.
+#
+### Default move semantics and the rule of zero
+Sometimes it's easier to allow the compiler to synthesise its own constructor / assignment operators, although it's not always the best idea.
+
+> _"It's easy to forget that adding just one of the five functions prevents the compiler from generating the other ones. The following version of the Button class has a custom destructor. As a result, the move operators are not generated, and the class will always be copied:"_ – pg. 32
