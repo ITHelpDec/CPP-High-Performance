@@ -29,6 +29,9 @@ public:
     
     auto begin() { return ptr_; }
     auto end() { return ptr_ + size_; }
+    
+    const auto begin() const { return ptr_; }
+    const auto end() const { return ptr_ + size_; }
 private:
     std::size_t size_ = 0;
     float *ptr_ = nullptr;
@@ -97,25 +100,23 @@ Buffer& Buffer::operator=(Buffer &&rhs) noexcept
     return *this;
 }
 
-int main()
-{
+void printBuffer(const Buffer &b) {
+    for (const auto &e : b) {
+        std::cout << e << " ";
+    } std::cout << "\n" << std::endl;
+}
+
+int main() {
     Buffer b0 = { 0.0f, 0.5f, 1.0f, 1.5f };
-    std::cout << "b0: ";
-    for (const auto &e : b0) { std::cout << e << " "; } std::cout << "\n" << std::endl;
+    std::cout << "b0: "; printBuffer(b0);
     
     Buffer b1 = b0;
-    std::cout << "b1: ";
-    for (const auto &e : b1) { std::cout << e << " "; } std::cout << "\n" << std::endl;
+    std::cout << "b1: "; printBuffer(b1);
     
     b0 = b1;
-    std::cout << "b0: ";
-    for (const auto &e : b0) { std::cout << e << " "; } std::cout << "\n" << std::endl;
+    std::cout << "b0: "; printBuffer(b0);
     
     b1 = std::move(b0);
-    std::cout << "b1: ";
-    for (const auto &e : b1) { std::cout << e << " "; } std::cout << std::endl;
-    std::cout << "b0: ";
-    for (const auto &e : b0) { std::cout << e << " "; } std::cout << "\n" << std::endl;
-  
-    return 0;
+    std::cout << "b1: "; printBuffer(b1);
+    std::cout << "b0: "; printBuffer(b0);
 }
