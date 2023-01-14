@@ -52,20 +52,23 @@ Buffer& Buffer::operator=(const Buffer &rhs)
     // need to protect against self-assignment!!
     // copy the underlying buffer from rhs in case lhs points to rhs
     // would prefer to encapsulate temp_p in a smart pointer, on the off chance...
-    // ... that an exception is thrown during allocation and the allocation...
-    // ... is not destroyed
+    // ... that an exception is thrown during allocation and the resources are not freed
+    // EDIT: use of unique_ptr below - resources freed once out of scope
     std::size_t temp_sz = rhs.size_;
-    auto temp_p = new float[temp_sz];
-    std::copy(rhs.ptr_, (rhs.ptr_ + rhs.size_), temp_p);
+    // auto temp_p = new float[temp_sz];
+    // std::copy(rhs.ptr_, (rhs.ptr_ + rhs.size_), temp_p);
+    auto temp_p = std::make_unique<float[]>(temp_sz);
+    std::copy(rhs.ptr_, (rhs.ptr_ + rhs.size_), temp_p.get());
     
     delete [] ptr_;
     
     ptr_ = new float[temp_sz];
-    std::copy(temp_p, (temp_p + temp_sz), ptr_);
+    // std::copy(temp_p, (temp_p + temp_sz), ptr_);
+    std::copy(temp_p.get(), (temp_p.get() + temp_sz), ptr_);
     size_ = temp_sz;
     
-    delete [] temp_p;
-    temp_p = nullptr;
+    // delete [] temp_p;
+    // temp_p = nullptr;
     
     std::cout << "operator=(const Buffer&)" << std::endl;
     
