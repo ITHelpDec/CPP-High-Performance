@@ -5,7 +5,7 @@
 ### Using auto in function signatures
 Controversial opinion here, but whilst helpful in certain instances, I'm not a fan of the (seemingly-)recent fetishisation of `auto` in code.
 
-By all means, if generics are important, and the type can be interpreted easily (e.g. iterators), then that's a good thing for readiblity, but it most instances where programmers use it like `var` in JavaScript, I find it unecessarily vague and ambiguous when it comes to debugging.
+By all means, if generics are important, and the type can be interpreted easily (e.g. iterators), then that's only a good thing for readiblity, but in most instances where programmers use it like `var` in JavaScript, I find it unecessarily vague and ambiguous when it comes to debugging.
 
 From what I've read, `auto` doesn't seem to hamper performance (which is great), but I really like the idea of code being self-documenting, and this, for me, doesn't tick that box.
 
