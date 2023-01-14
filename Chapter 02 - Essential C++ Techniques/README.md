@@ -105,3 +105,33 @@ A nice example of how C++ can acquire and release resources regardless of its su
 
 [mutex.cpp](mutex.cpp)
 #
+### Exceptions
+Exceptions have a bit of a bad rep - they have their uses, but in general they are avoided for a few reasons:
+* THey increase the size of the binary
+* THrowing and catching exceptions is expensive
+#
+### Lambda functions
+There was a strange eapplication of lambdas by reference and lambdas by value on pg. 54
+Whilst it might be convincing to capture by value based on the example, it is the programmer's responsibility responsibility to ensure that whatever information is captured has the intended meaning.
+Lambdas are typically used best when a function is needed temporarily over a short period of time – assigning it to a variable name like in the examples as opposed to defining it inside the STL algorithm takes away from the temporary nature of the function.
+You can capture by value or by reference to different degrees, as well as modify the contents of the trailing return type by using the `mutable` keyword.
+#
+### Assigning C function pointers to lambdas
+Would be useful when working with older or different codebases - just prefix the capture list with a `+`.
+```cpp
+extern void download_webpage(const char* url, void (*callback)(int, const char*));
+download_webpage("http://www.packt.com", +[] (int result, const char *str) { /* do stuff */ } );
+```
+#
+### Lambda types
+_"From C++20 lambdas without ~~captures~~ (parameters?) are default-constructible and assignable through the use of `decltype`)"_ – pg. 60
+The example given has an empty capture list but is the first of its kind with no parameter list.
+```cpp
+auto x = [] {};
+```
+The structure of a lambda is...
+```cpp
+[capture list](parameter list) -> return type { function body }
+```
+..., but this may still prove to be a useful technique to know.
+#
