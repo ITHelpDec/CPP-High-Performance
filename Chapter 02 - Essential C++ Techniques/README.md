@@ -31,6 +31,8 @@ Given that deterministic destruction was praised by developers for being predict
 ### Const propagation for pointers
 We can use `std::experimental::propogate_const` to _"generate compilation errors when trying mutate an object inside a const function"_ – pg. 23
 #
+### Pass by value when applicable
+Whilst we might be able to write a function that covers both copy- and move-assignment operations on page 37, it involves creating a local copy of our argument, which feels like a waste of resources – I would rather use the const lvalue ref and rvalue overloads.
 ### Move semantics
 Have covered this topic already, but benefits include...
 * Avoiding expensive deep cloning operations
