@@ -65,3 +65,9 @@ These were covered extensively in C++ Primer, but are instrumental in taking adv
 Sometimes it's easier to allow the compiler to synthesise its own constructor / assignment operators, although it's not always the best idea.
 
 > _"It's easy to forget that adding just one of the five functions prevents the compiler from generating the other ones. The following version of the Button class has a custom destructor. As a result, the move operators are not generated, and the class will always be copied:"_ – pg. 32
+
+#
+### A common pitfall - moving non-resources
+In instances where a simple type is mixed with a resource-owning type, std::swap can very useful in avoiding undefined behaviour when implementing move constructors / move-assignment operators, (although, again, be mindful protecting against self-assignment).
+
+[menu.cpp](menu.cpp) | [widget.cpp](widget.cpp)
