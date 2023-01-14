@@ -5,7 +5,7 @@
 ### Using auto in function signatures
 Controversial opinion here, but whilst helpful in certain instances, I'm not a fan of the (seemingly-)recent fetishisation of `auto` in code.
 
-By all means, if generics are important, and the type can be interpreted easily (e.g. iterators), then that's only a good thing for readiblity, but in most instances where programmers use it like `var` in JavaScript, I find it unecessarily vague and ambiguous when it comes to debugging.
+By all means, if generics are important, and the type can be interpreted easily (e.g. iterators), then that can only a good thing for readiblity, but in most instances where programmers use it like `var` in JavaScript, I find it unecessarily vague and ambiguous when it comes to debugging.
 
 From what I've read, `auto` doesn't seem to hamper performance (which is great), but I really like the idea of code being self-documenting, and this, for me, doesn't tick that box.
 
@@ -81,3 +81,27 @@ This is quite clever - similar to const, we can create specific overloads for lv
 #
 ### (Named )Return Value Optimisation
 We do not need to use std::move() when returning a value from a function - the compiler will optimise this for us (see ["copy ellision"](https://en.cppreference.com/w/cpp/language/copy_elision))
+#
+### Contracts
+Trhee important things exist in the concept of Design by Contract
+* Pre-condition     - specifies the _responsibilities of the function caller_
+* Post-condition    - specifies the _responsibilities of the function upon returning_
+* Invariant         - _a condition that should alwys hold true_
+
+We can use `static_assert()` and the `assert()` macro defined in the `<cassert>` header to help maintain contracts.
+
+We can also include this handy snippet of code in our header files to take advantage of assert's in debug mode, whilst avoiding them entirely in release mode.
+```cpp
+#ifdef NDEBUG
+#define assert(condition) ((void)0)
+#else
+#define assert(condition) /* implementation defined */
+#endif
+```
+We can use these assumptions to highlight programming errors, and exceptions for the truly exceptional.
+#
+### Resource acquisition
+A nice example of how C++ can acquire and release resources regardless of its success (or failure) – this is especially important with the likes of mutexes, in order to prevent deadlock.
+
+[mutex.cpp](mutex.cpp)
+#
