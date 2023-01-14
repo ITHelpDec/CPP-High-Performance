@@ -71,3 +71,9 @@ Sometimes it's easier to allow the compiler to synthesise its own constructor / 
 In instances where a simple type is mixed with a resource-owning type, std::swap can very useful in avoiding undefined behaviour when implementing move constructors / move-assignment operators, (although, again, be mindful protecting against self-assignment).
 
 [menu.cpp](menu.cpp) | [widget.cpp](widget.cpp)
+#
+### Applying the && modifier to class member functions
+This is quite clever - similar to const, we can create specific overloads for lvalue and rvalues.
+
+[foo.cpp](foo.cpp)
+#
