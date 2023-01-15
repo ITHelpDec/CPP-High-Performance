@@ -135,3 +135,16 @@ The structure of a lambda is...
 ```
 ..., but this may still prove to be a useful technique to know.
 #
+### Performance consideration of std::function
+* Prevented inline optimisations
+* Dynamically-allocated memory for captured variables
+* Additional run-time computation
+
+The example from hte book was 18x faster using a lambda (2ms) than using a std::function (36ms).
+This equated to 0.35s vs 1.86s without optimisations on my machine and 0.006s vs 0.315s on -O3, so substantially faster.
+#
+### Generic lambdas
+Just in case you needed another opportunity to use `auto`, but should prove useful where generic solutions would be beneficial.
+#
+### Summary
+Overall, some great topics covered
