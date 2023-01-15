@@ -7,5 +7,5 @@ A really important concept to learn in regards to data structures and algorithms
 
 Some example sorts from the book.
 
-[linear_search.cpp](linear_search.cpp) | [binary_search](binary_search)
+[linear_search.cpp – O(n)](linear_search.cpp) | [binary_search – O(log(n))](binary_search)
 #
