@@ -2,4 +2,10 @@
 
 ## Highlights from Chapter 3 - "Analysing and Measuring Performance"
 
-### ...work in progress
+### Big O Notation
+A really important concept to learn in regards to data structures and algorithms.
+
+Some example sorts from the book.
+
+[linear_search.cpp](linear_search.cpp) | [binary_search](binary_search)
+#
