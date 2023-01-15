@@ -79,7 +79,7 @@ This is quite clever - similar to const, we can create specific overloads for lv
 
 [foo.cpp](foo.cpp)
 #
-### (Named )Return Value Optimisation
+### (Named) Return Value Optimisation
 We do not need to use std::move() when returning a value from a function - the compiler will optimise this for us (see ["copy ellision"](https://en.cppreference.com/w/cpp/language/copy_elision))
 #
 ### Contracts
