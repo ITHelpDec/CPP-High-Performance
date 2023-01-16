@@ -15,3 +15,9 @@ Amortised ≠ average
 a single one. We are still analysing the worst case, but for a sequence of operations. The amortized running time can be computed by first analysing the running time of the entire sequence and then dividing that by the length of the sequence"_ – pg. 75
 
 > _"It will run in O(1) in almost all cases, except very few where it will perform worse."_ – pg. 76
+#
+### Sampling profilers
+The concept of sampling profilers is interesting, although I'd be tempted to create something that creates timestamps and stacks of which functions are in use in an attempt to mirror the author's diagram.
+
+[example_profiler.cpp](example_profiler.cpp)
+#
