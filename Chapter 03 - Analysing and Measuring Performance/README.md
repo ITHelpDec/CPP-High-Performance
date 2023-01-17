@@ -21,3 +21,18 @@ The concept of sampling profilers is interesting, although I'd be tempted to cre
 
 [example_profiler.cpp](example_profiler.cpp)
 #
+### Microbenchmarking
+> _"Eliminating calls to expensive functions is usually the most effective way of optimizing the overall performance of the program."_ – pg. 88
+#
+### Amdahl's Law
+> _"When working with microbenchmarks, it's essential to keep in mind how big (or small) an impact the optimization of the isolated code will have on the complete program"_ – pg. 89
+
+Two things are quite important to this law:
+* The proportion of the isolated part's execution time in relation to the rest of the programme **(p)**
+* The speedup of hte part we are optimising (the local speed-up) **(s)**
+
+$$ Overall\text{ }speedup = {1 \over (1 - p) + {p \over s}} $$
+
+### Pitfalls of microbenchmarking
+* The compiler might optimise isolated code differently compared to how it is optimised in the full programme
+* **_"Thrash the cache!"_** (the limiting factor may be due to cache misses)
