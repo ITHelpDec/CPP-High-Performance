@@ -36,3 +36,7 @@ $$ Overall\text{ }speedup = {1 \over (1 - p) + {p \over s}} $$
 ### Pitfalls of microbenchmarking
 * The compiler might optimise isolated code differently compared to how it is optimised in the full programme
 * **_"Thrash the cache!"_** (the limiting factor may be due to cache misses)
+#
+### Google Benchmark
+Best thing from this chapter was learning that Google Benchmark allows you to see time complexity (it will be interesting to see if it also runs benchmarks on space complexity).
+[benchmark.cpp](benchmark.cpp)
