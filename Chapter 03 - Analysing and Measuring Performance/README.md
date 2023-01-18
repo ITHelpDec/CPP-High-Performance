@@ -40,6 +40,21 @@ My own personal take on Amdahl's Law is that whilst yes, it can be a fantastic m
 * **_"Thrash the cache!"_** (the limiting factor may be due to cache misses)
 #
 ### Google Benchmark
-Best thing from this chapter was learning that Google Benchmark allows you to see time complexity (it will be interesting to see if it also runs benchmarks on space complexity).
+Best thing from this chapter was learning that Google Benchmark allows you to see time complexity (it will be interesting to see if it also runs benchmarks on space complexity, and to learn more about Xcode Instruments).
 
-[benchmark.cpp](benchmark.cpp)
+To incorporate Google Benchmark functionality into an Xcode project, you must perform the following steps:
+1) Install Google Benchmark using the terminal command
+* `brew install google-benchmark`
+2) Change the following settings within your project's `Build Settings` (select `All` + `Combined`)
+* `Header Search Paths`
+  * `/usr/local/Cellar/google-benchmark/1.7.1/include`
+* `Library Search Paths`
+  * `/usr/local/Cellar/google-benchmark/1.7.1/lib`
+* `Other Linker Flags`
+  * `-lbenchmark`
+
+Now you can run your project as you normally would, with the test output going straight to the console.
+
+See the code below for example outputs.
+
+[bm_linear_search.cpp](bm_linear_search.cpp)
