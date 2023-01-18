@@ -30,4 +30,11 @@ std::erase_if(v, [] (const int &x) { return x < 0; } );
 ### Smarter use of std::array
 [array.cpp](array.cpp)
 #
-### ... next
+### std::basic_string
+The biggest change recently has been from C++17.
+
+> _"Historically, std::basic_ string was not guaranteed to be laid out contiguously in memory. This changed with C++17, which makes it possible to pass the string to APIs that require an array of characters"_ – pg. 109
+
+Really interesting use of I/O manipulation with std::basic_string
+
+[basic_string.cpp](basic_string.cpp)
