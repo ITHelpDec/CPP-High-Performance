@@ -19,4 +19,10 @@ Organise your memory contiguously
 #
 [loop_interchange.cpp](loop_interchange.cpp)
 #
-### ...next topic
+### Additions to std::vector from C++20
+```cpp
+std::vector<int> ivec = { -1, 5, 2, -3, 4, -5, 5 };
+std::erase(v, 5);
+std::erase_if(v, [] (const int &x) { return x < 0; } );
+```
+[vector.cpp](vector.cpp)
