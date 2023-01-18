@@ -13,5 +13,10 @@
 * Temporal locality: Accessing data that has recently been used (like dynamic programming)
 * Spatial locality: Accessing data near some other data you are using
 * Cache thrashing: Constantly wiping out the cache lines in the likes of inner loops
-
+#
+### Moral of the story
+Organise your memory contiguously
+#
 [loop_interchange.cpp](loop_interchange.cpp)
+#
+### ...next topic
