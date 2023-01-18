@@ -35,6 +35,10 @@ The biggest change recently has been from C++17.
 
 > _"Historically, std::basic_ string was not guaranteed to be laid out contiguously in memory. This changed with C++17, which makes it possible to pass the string to APIs that require an array of characters"_ – pg. 109
 
-Really interesting use of I/O manipulation with std::basic_string
+Really interesting use of unformatted I/O with std::basic_string
 
 [basic_string.cpp](io/basic_string.cpp) | [file.txt](io/file.txt)
+
+> _"Most implementations of std::basic_string utilize something called small object optimization, which means that they do not allocate any dynamic memory if the size of the string is small"_ – pg. 109
+#
+### ...next
