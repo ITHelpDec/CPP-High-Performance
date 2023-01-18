@@ -49,9 +49,11 @@ To incorporate Google Benchmark functionality into an Xcode project, you must pe
 * `brew install google-benchmark`
 2) Change the following settings within your project's `Build Settings` (select `All` + `Combined`)
 * `Header Search Paths`
-  * `/usr/local/Cellar/google-benchmark/1.7.1/include`
+  * `/usr/local/Cellar/google-benchmark/<version>/include`
+  * e.g. `/usr/local/Cellar/google-benchmark/1.7.1/include`
 * `Library Search Paths`
-  * `/usr/local/Cellar/google-benchmark/1.7.1/lib`
+  * `/usr/local/Cellar/google-benchmark/<version>/lib`
+  * e.g. `/usr/local/Cellar/google-benchmark/1.7.1/lib`
 * `Other Linker Flags`
   * `-lbenchmark`
 
