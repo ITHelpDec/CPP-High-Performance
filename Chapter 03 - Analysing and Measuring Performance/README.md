@@ -7,7 +7,9 @@ A really important concept to learn in regards to data structures and algorithms
 
 Some example sorts from the book.
 
-[linear_search.cpp – O(n)](linear_search.cpp) | [binary_search.cpp – O(log(n))](binary_search.cpp)
+[linear_search.cpp](linear_search.cpp) – $O(n)$
+
+[binary_search.cpp](binary_search.cpp) – $O(log(n))$
 #
 ### Amortised time
 Amortised ≠ average
@@ -17,7 +19,7 @@ a single one. We are still analysing the worst case, but for a sequence of opera
 > _"It will run in O(1) in almost all cases, except very few where it will perform worse."_ – pg. 76
 #
 ### Sampling profilers
-The concept of sampling profilers is interesting, although I'd be tempted to create something that creates timestamps and stacks of which functions are in use in an attempt to mirror the author's diagram.
+The concept of sampling profilers working at fixed intervals is interesting. I'd be tempted, however, to create something that records timestamps and stacks of which functions are in use in an attempt to mirror the author's diagram.
 
 [example_profiler.cpp](example_profiler.cpp)
 #
@@ -58,3 +60,8 @@ Now you can run your project as you normally would, with the test output going s
 See the code below for example outputs.
 
 [bm_linear_search.cpp](bm_linear_search.cpp) | [bm_linear_search_with_range.cpp](bm_linear_search_with_range.cpp) | [linear_vs_binary.cpp](linear_vs_binary.cpp)
+#
+### Summary
+By far the most interesting part of this chapter has been Google Benchmark.
+
+I feel even more examples could have been given (even a few leetcode examples), and maybe a run through of how to [plot the results](https://github.com/lakshayg/google_benchmark_plot), but this has been a good introduction to what we can achieve with microbenchmarking software.
