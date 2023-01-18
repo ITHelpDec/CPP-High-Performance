@@ -57,4 +57,4 @@ Now you can run your project as you normally would, with the test output going s
 
 See the code below for example outputs.
 
-[bm_linear_search.cpp](bm_linear_search.cpp)
+[bm_linear_search.cpp](bm_linear_search.cpp) | [bm_linear_search_with_range.cpp](bm_linear_search_with_range.cpp)
