@@ -16,7 +16,7 @@
 #
 ### Moral of the story
 Organise your memory contiguously
-#
+
 [loop_interchange.cpp](loop_interchange.cpp)
 #
 ### Additions to std::vector from C++20
