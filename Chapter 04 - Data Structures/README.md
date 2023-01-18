@@ -26,3 +26,8 @@ std::erase(v, 5);
 std::erase_if(v, [] (const int &x) { return x < 0; } );
 ```
 [vector.cpp](vector.cpp)
+#
+### Smarter use of std::array
+[array.cpp](array.cpp)
+#
+### ... next
