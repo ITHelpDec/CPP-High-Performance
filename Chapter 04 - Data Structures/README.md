@@ -44,4 +44,6 @@ Really interesting use of unformatted I/O with std::basic_string
 ### Hash and equals
 Rather than rely on the red-black tree implementation found in std::set, we can specify our own hash function (I've done this previously in C++ Primer).
 
-[bad_hash.cpp](bad_has.cpp) | [combine_hash.cpp](combine_hash.cpp)
+[bad_hash.cpp](bad_has.cpp) | [combine_hash.cpp](combine_hash.cpp) | [template_specialisation.cpp](template_specialisation.cpp)
+#
+### ...next
