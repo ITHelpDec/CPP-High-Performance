@@ -41,4 +41,7 @@ Really interesting use of unformatted I/O with std::basic_string
 
 > _"Most implementations of std::basic_string utilize something called small object optimization, which means that they do not allocate any dynamic memory if the size of the string is small"_ – pg. 109
 #
-### ...next
+### Hash and equals
+Rather than rely on the red-black tree implementation found in std::set, we can specify our own hash function (I've done this previously in C++ Primer).
+
+[bad_hash.cpp](bad_has.cpp)
