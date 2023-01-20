@@ -44,6 +44,25 @@ Really interesting use of unformatted I/O with std::basic_string
 ### Hash and equals
 Rather than rely on the red-black tree implementation found in std::set, we can specify our own hash function (I've done this previously in C++ Primer).
 
-[bad_hash.cpp](bad_has.cpp) | [combine_hash.cpp](combine_hash.cpp) | [template_specialisation.cpp](template_specialisation.cpp) | [rrxmrrxmsx_0.cpp](rrxmrrxmsx_0.cpp)
+[bad_hash.cpp](bad_has.cpp) | [combine_hash.cpp](combine_hash.cpp) | [template_specialisation.cpp](template_specialisation.cpp)
+
+Also take a look at the code below to see use of the new bit-rotation functions that have come as part of C++20 – they mimic the Assembly instructions `ror` and `rol` instructions so that we don't have to create our own e.g.
+```cpp
+inline uint64_t rotl64 ( uint64_t x, int8_t r )
+{
+  return (x << r) | (x >> (64 - r));
+}
+```
+```asm
+func(unsigned long, unsigned int):
+    mov     ecx, esi
+    rol     rdi, cl
+    mov     rax, rdi
+    ret
+```
+
+Thanks go to Pelle Evensen for his work on this hash function variation.
+
+[rrxmrrxmsx_0.cpp](rrxmrrxmsx_0.cpp)
 #
 ### ...next
