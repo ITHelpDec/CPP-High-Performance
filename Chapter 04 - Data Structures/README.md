@@ -65,4 +65,11 @@ Thanks go to Pelle Evensen for his work on this hash function variation.
 
 [rrxmrrxmsx_0.cpp](rrxmrrxmsx_0.cpp)
 #
+### Priority Queues
+Interesting use of std::priority_queue for collecting the `k` largest elements, although I've modified the algotihm slightly to avoid the use of `std::reverse` (seems unnecessarily expensive).
+
+I'd also be interested in modifying the implementation to use a `std::set` or `std::multiset`, or even a `min_heap` to display the elements in the correct order, and hopefully avoid the `while` loop altogether.
+
+[document.cpp](document.cpp)
+#
 ### ...next
