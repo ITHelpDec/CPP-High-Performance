@@ -72,4 +72,9 @@ I'd also be interested in modifying the implementation to use a `std::set` or `s
 
 [document.cpp](document.cpp)
 #
-### ...next
+### `std::string_view`
+This is a really interesting new feature as part of C++17 - compared to `std::string`, the simple benchmarks I ran on constructing string literals were really positive, although on my machine I find std::chrono::high_resolution_clock is always quite slow on the first test, so I've alternated the constructions with different words to see if there's a noticeable difference.
+
+`std::string_view` seems to be quite fast, so I might start using it more often.
+
+[string_view.cpp](string_view.cpp)
