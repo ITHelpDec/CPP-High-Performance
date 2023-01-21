@@ -78,3 +78,14 @@ This is a really interesting new feature as part of C++17 - compared to `std::st
 `std::string_view` seems to be quite fast, so I might start using it more often.
 
 [string_view.cpp](string_view.cpp)
+#
+### `std::span`
+Seems a bit of pointless...but it's just a mutable `std::string_view` in an attempt to eliminate array decay.
+```cpp
+void func(std::span<float> buffer) {
+    for (auto &&b : buffer) { std::cout << b << " "; }
+} // why the auto? what is it?
+it's not a float&&, although const float& works in its place
+```
+#
+### ...next
