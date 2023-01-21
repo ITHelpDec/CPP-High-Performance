@@ -88,4 +88,21 @@ void func(std::span<float> buffer) {
 // it's not a float&&, although const float& works in its place
 ```
 #
+### Performance overheads
+Turns out...
+
+`if (mset.lower_bound(word) != mset.end())`
+
+...is faster than...
+
+`if (mset.find(word) != mset.end())`
+
+..., and both are faster than 
+
+`if (mset.contains(words)`
+
+...so I'll be using `lower_bound` more often.
+
+[find_benchmarks.cpp](find_benchmarks.cpp)
+#
 ### ...next
