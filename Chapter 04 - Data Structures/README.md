@@ -85,7 +85,7 @@ Seems a bit of pointless...but it's just a mutable `std::string_view` in an atte
 void func(std::span<float> buffer) {
     for (auto &&b : buffer) { std::cout << b << " "; }
 } // why the auto? what is it?
-it's not a float&&, although const float& works in its place
+// it's not a float&&, although const float& works in its place
 ```
 #
 ### ...next
