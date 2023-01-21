@@ -105,4 +105,12 @@ Turns out...
 
 [find_benchmarks.cpp](find_benchmarks.cpp)
 #
+### Size matters
+...for spatial locality, clearly.
+> _"When iterating over elements stored contiguously in memory, we will increase the probability that the data we need is already cached if we manage to keep our objects small, thanks to spatial locality. Obviously, this will have a great impact on performance"_ – pg. 123
+
+Iterating over an object of 8 bytes compared to an object of 260 bytes is twice as fast on my machine, based off the benchmark listed below.
+
+[sizeof_benchmark.cpp](sizeof_benchmark.cpp)
+#
 ### ...next
