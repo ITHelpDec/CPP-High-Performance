@@ -113,4 +113,12 @@ Iterating over an object of 8 bytes compared to an object of 260 bytes is twice 
 
 [sizeof_benchmark.cpp](sizeof_benchmark.cpp)
 #
-### ...next
+### Parallel Arrays
+Basically, the concept of de-encapsulating information from a class into an array to allow for faster iteration.
+
+Reminds me of Chapter 1 with how Java handles memory allocation compared to C++ – `std::shared_ptr`might be an interesting way to allow for parallel arrays without de-encapsulation.
+
+Source code available on author's GitHub.
+#
+### Summary
+Really interesting chapter – I'm looking forward to learning more about std::string_view and temporal / spatial locality.
