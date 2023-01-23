@@ -132,4 +132,9 @@ bool contains_duplicates(const T &t) {
 }
 ```
 #
-### ...next
+### Sorting only the data you need
+`std::nth_element` is $O(n)$ time, so that will be useful, although the author forgets to mention that this algorithm only retains its linear complexity promise for containers with 10 or more elements (at least on my machine), otherwise it will fully sort the entire container (making it $O(log(n))$ time).
+
+Across thousands, if not millions, of elements, `std::nth_element` seems to perform very well, but I was unable to mimic the authors tests in Debug mode, only Release mode.
+
+[sort_bechmarks.cpp](sort_benchmarks.cpp)
