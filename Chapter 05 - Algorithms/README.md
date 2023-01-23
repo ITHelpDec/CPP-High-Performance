@@ -89,4 +89,39 @@ The latter *_must_* be done within the body of the class, however, compared to h
 
 I can imagine this would be helpful if all elements are being compared, and then you can drop back to the normal way if you want more control over what elements are being compared.
 #
+### Avoiding lambdas
+These are clean ways to sort the elments of a vector by size and find elements based on criteria.
+```cpp
+std::sort(svec.begin(), svec.end(),
+          [] (const std::string &lhs, const std::string &rhs) { return lhs.size() < rhs.size(); } );
+=> std::ranges::sort(svec, std::less<>, &std::string::size);
+```
+and
+```cpp
+std::find(svec.begin(), svec.end(), [] (const std::string &s) { return s.size() == 3; } );
+=> std::ranges::find(svec, 3, &std::string::size);
+```
+#
+### Complexity guarantees
+STL promises no greater complexity than $O(log(n))$.
+
+Author's $O(n^2)$ solution is expensive.
+```cpp
+template <typename Iterator>
+auto contains_duplicates(Iterator first, Iterator last) {
+  for (auto it = first; it != last; ++it)
+    if (std::find(std::next(it), last, *it) != last)
+      return true;
+  return false;
+}
+```
+The following would get us to $O(n)$ time using the author's techniques without the need to sort.
+```cpp
+template <class ForwardIt>
+bool contains_duplicates(ForwardIt first, ForwardIt last) {
+    std::unordered_set<std::decay_t<decltype(*first)>> dup_set(first, last);
+    return dup_set.size() != (last - first);
+}
+```
+#
 ### ...next
