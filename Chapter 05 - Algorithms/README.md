@@ -138,3 +138,8 @@ bool contains_duplicates(const T &t) {
 Across thousands, if not millions, of elements, `std::nth_element` seems to perform very well, but I was unable to mimic the authors tests in Debug mode, only Release mode.
 
 [sort_bechmarks.cpp](sort_benchmarks.cpp)
+#
+### Favour STL algorithms where reasonable
+`std::rotate` is quite powerful, similar to SAR or ROTR in Assembly.
+
+[sar.cpp](sar.cpp)
