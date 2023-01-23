@@ -123,5 +123,13 @@ bool contains_duplicates(ForwardIt first, ForwardIt last) {
     return dup_set.size() != (last - first);
 }
 ```
+...or...
+```cpp
+template <typename T>
+bool contains_duplicates(const T &t) {
+    std::unordered_set<typename T::value_type> tset(t.begin(), t.end());
+    return t.size() != tset.size();
+}
+```
 #
 ### ...next
