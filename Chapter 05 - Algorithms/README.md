@@ -143,3 +143,11 @@ Across thousands, if not millions, of elements, `std::nth_element` seems to perf
 `std::rotate` is quite powerful, similar to SAR or ROTR in Assembly.
 
 [sar.cpp](sar.cpp)
+#
+### Compare with zero
+> _"In addition to the loop unrolling, a very subtle optimization is...[comparing] with zero instead of a value. On some CPUs, comparing with zero is slightly faster than any other value, as it uses another assembly instruction (on the x86 platform, it uses test instead of cmp)."_ – pg. 169
+#
+### Summary
+Decent chapter.
+
+Main takeaways were a few useful STL algorithms, the 'spaceship' and how to deduce container element type in a templated function.
