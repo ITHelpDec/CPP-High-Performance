@@ -25,3 +25,7 @@ Still disappointing that this [only compiles on GCC as opposed to Clang](https:/
 > _"A view is also a range, that is, it provides begin() and end() functions. However, unlike containers, a view does not own the elements in the range that the view spans over."_ – pg.180
 
 Ownership seems to be a big thing with pointers and smart pointers, so I get the feeling this could be quite important as the chapter progresses.
+
+`std::views` also allow for $O(1)$ run-time, compared to $O(n)$ with `std::ranges`
+#
+### ...next
