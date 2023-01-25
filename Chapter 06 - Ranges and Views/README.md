@@ -28,4 +28,9 @@ Ownership seems to be a big thing with pointers and smart pointers, so I get the
 
 `std::views` also allow for $O(1)$ run-time, compared to $O(n)$ with `std::ranges`
 #
+### Materialising a `std::view`
+A few different methods of transposing `T<e>` to `U<f>` e.g. `std::list<int>` -> `std::vector<std::string>`
+
+[materialise.cpp](materialise.cpp) | [generic.cpp](generic.cpp)
+#
 ### ...next
