@@ -57,7 +57,7 @@ cat README.md | grep "woof"
 ```
 ...if you want to print out the contents of a file, but filter the output to only show what you're interested in.
 
-...correction: it's possible to sort if we use `std::views::take`.
+...CORRECTION: it's possible to sort if we use `std::views::take`.
 
 [lazy.cpp](lazy.cpp) | [take.cpp](take.cpp)
 
