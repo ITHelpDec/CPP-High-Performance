@@ -18,3 +18,10 @@ Turn 3 lines into 2.
 Still disappointing that this [only compiles on GCC as opposed to Clang](https://godbolt.org/z/xG3Pz4GP6) as of January 2023 – sort of defeats the purpose of portability (the standard's been out for 3 years, like...).
 
 [get_max_score_refactor.cpp](get_max_score_refactor.cpp)
+#
+### Ownership
+> _"Containers own their elements, so we can, therefore, call them owning ranges"_ – pg. 180
+
+> _"A view is also a range, that is, it provides begin() and end() functions. However, unlike containers, a view does not own the elements in the range that the view spans over."_ – pg.180
+
+Ownership seems to be a big thing with pointers and smart pointers, so I get the feeling this could be quite important as the chapter progresses.
