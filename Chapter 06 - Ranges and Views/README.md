@@ -33,4 +33,6 @@ A few different methods of transposing `T<e>` to `U<f>` e.g. `std::list<int>` ->
 
 [materialise.cpp](materialise.cpp) | [generic.cpp](generic.cpp)
 #
-### ...next
+### `std::views` are lazy-evaluated
+Views are lazy, materialisations are eager.
+> _"Remember that once the view has been copied back to a container, there is no longer any dependency between the original and the transformed container. This also means that the materialization is an eager operation, whereas all view operations are lazy."_ – pg. 183
