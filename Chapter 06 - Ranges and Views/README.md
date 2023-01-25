@@ -63,4 +63,28 @@ cat README.md | grep "woof"
 
 
 #
-### ...next
+### Helpful functions
+`std::views::split` and `std::views::join`
+```cpp
+std::string csv = "10,11,12";
+
+auto digits = csv
+    | std::views::split(',')        // [ [1, 0], [1, 1], [1, 2] ]
+    | std::views::join;             // [ 1, 0, 1, 1, 1, 2 ]
+
+for (const auto &i : csv) {
+    std::cout << i << " ";          // "1 0 1 1 1 2"
+} std::cout << std::endl;
+```
+`std::views::drop`
+```cpp
+std::vector ivec = { 1, 2, 3, 4, 5, 4, 3, 2, 1 };
+
+auto v = ivec
+  | std::views::drop_while( [] (auto i) { return i < 5; } )     // drop all elements until condition is not met
+  | std::views::take(3);                                        // take the first 'n' elements from that point
+
+for (const auto &i : v) {
+    std::cout << i << " ";                                      // 5, 4, 3
+} std::cout << std::endl;
+```
