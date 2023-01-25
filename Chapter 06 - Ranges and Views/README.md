@@ -12,4 +12,9 @@ Interesting feature to flatten out a nested array
 
 [flatten.cpp](flatten.cpp)
 #
-### ...next
+### Improved legibility with namespace
+Turn 3 lines into 2.
+
+Still disappointing that this [only compiles on GCC as opposed to Clang](https://godbolt.org/z/xG3Pz4GP6) as of January 2023 – sort of defeats the purpose of portability (the standard's been out for 3 years, like...).
+
+[get_max_score_refactor.cpp](get_max_score_refactor.cpp)
