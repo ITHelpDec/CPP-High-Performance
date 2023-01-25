@@ -36,3 +36,27 @@ A few different methods of transposing `T<e>` to `U<f>` e.g. `std::list<int>` ->
 ### `std::views` are lazy-evaluated
 Views are lazy, materialisations are eager.
 > _"Remember that once the view has been copied back to a container, there is no longer any dependency between the original and the transformed container. This also means that the materialization is an eager operation, whereas all view operations are lazy."_ – pg. 183
+#
+### Sorting
+It's not possible to sort `std::views` because they are lazy-evaluated e.g.
+```cpp
+std::vector<int> ivec = { 1, 2, 3, 4, 5 };
+auto odd_numbers = ivec
+    | std::views::filter( [] (auto i) { return i % 2; } );
+    
+// does not compile
+// std::ranges::sort(odd_numbers);
+
+// materialise, then sort
+std::vector<int> odd_vec = to_vector(odd_numbers);
+std::ranges::sort(odd_vec);
+```
+This whole chapter and its syntax reminds me a lot of `grep` in linux e.g.
+```bash
+cat README.md | grep "woof"
+```
+...if you want to print out the contents of a file, but filter the output to only show what you're interested in.
+
+[lazy.cpp](lazy.cpp)
+#
+### ...next
