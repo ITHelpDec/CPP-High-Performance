@@ -2,4 +2,12 @@
 
 ## Highlights from Chapter 7 - "Memory Management"
 
-### ...work in progress
+### Spoiler test
+<details> 
+  <summary>Does it work?</summary>
+  
+  ```cpp
+  std::cout << "you're damn right it does!" << std::endl;
+  ```
+  
+</details>
