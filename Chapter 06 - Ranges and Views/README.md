@@ -88,3 +88,16 @@ for (const auto &i : v) {
     std::cout << i << " ";                                      // 5, 4, 3
 } std::cout << std::endl;
 ```
+#
+### Summary
+Shame this isn't widely supported unless using gcc, but it feels like Python met Linux and had a syntactical baby in order to create it.
+
+I can't see myself wanting to use this any time soon, but if I do then I might give range-v3 a go.
+
+I did, however, find out that Xcode supports...
+```cpp
+#include <__ranges/all>
+```
+...as well as a few other inidividual header files, so that was one step closer to getting things to run successfully on Xcode.
+
+All-in-all, biggest takeaway was that `view` construction is $O(1)$ time, lazily-evaluated and non-owning.
