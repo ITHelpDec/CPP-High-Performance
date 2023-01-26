@@ -285,4 +285,7 @@ int main()
 </details>
 
 #
+### `new` and `delete` operators
+I've already done a full breakdown of these operators in C++ Primer all the way up to C++17 [here](https://github.com/ITHelpDec/CPP-Primer/blob/f0b1d8cba07f2b00accf0937696cb11cd8a85898/Chapter%2019%20–%20Specialised%20Tools%20and%20Techniques/19.01.cpp).
+#
 ### ...next
