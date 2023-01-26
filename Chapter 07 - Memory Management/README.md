@@ -84,5 +84,7 @@ int main()
 </details>
 
 We can view the default stack size on a UNIX-based system using the commands `ulimit -s`
+  
+It's worth remembering that (of the time the book was published) Windows defaults to 1MB of stack, whereas macOS defaults to 8MB, so something designed using macOS or Linux, may unintentionally cause a stack overflow on Windows.
 #
 ### ...next
