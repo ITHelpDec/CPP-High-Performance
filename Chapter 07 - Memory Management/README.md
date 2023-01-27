@@ -364,7 +364,7 @@ int main()
 By changing the order of the elements in an object, we can influence the overall size of the object - smaller size means faster iteration, so this is an easy, easy win for performance!
   
 <details>
-  <summary>How rearranging members affects object size</summary>
+  <summary>Using padding to improve performance</summary>
   
   ```cpp
   #include <iostream>
