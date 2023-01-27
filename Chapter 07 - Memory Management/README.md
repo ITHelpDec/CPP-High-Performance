@@ -580,6 +580,47 @@ This is a really nice description of the reasons for using a `std::weak_ptr`
 > _"One common reason for using a weak pointer is to break a reference cycle. A reference cycle occurs when two or more objects refer to each other using shared pointers. Even if all external std::shared_ptr constructors are gone, the objects are kept alive by referring to themselves."_ – pg. 216
   
 > _"A weak pointer is safe to use since we cannot reference the object unless it actually exists, which is not the case with a dangling raw pointer."_ – pg. 216
+
+<details>
+<summary>std::weak_ptr&lt;T&gt;</summary>
+
+```cpp
+#include <iostream>
+
+int main()
+{
+    std::shared_ptr<int> i = std::make_shared<int>(10);
+    
+    std::weak_ptr<int> wptr(i);
+    
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    
+    // .lock() convered std::weak_ptr to std::shared_ptr
+    if (auto shared_i = wptr.lock()) {
+        std::cout << *shared_i << '\n';
+    } else {
+        std::cout << "wptr has expired; shared_ptr was nullptr\n";
+    }
+    
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    
+    i.reset();
+    
+    // dereferencing a reset shared_ptr will throw an exception
+    if (i) std::cout << *i << '\n';
+    
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    
+    if (auto shared_i = wptr.lock()) {
+        std::cout << *shared_i << '\n';
+    } else {
+        std::cout << "wptr has expired; shared_ptr was nullptr\n";
+    }
+    
+    return 0;
+}
+```
+</details>
   
 #
 ### ...work in progress
