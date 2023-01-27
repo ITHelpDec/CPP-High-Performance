@@ -494,4 +494,83 @@ These are really nice conceptual explanations of smart ponters.
 > * _"`std::weak_ptr` – weak ownership expresses that I'll use the object if it exists, but don't keep it alive for me. "_
 
 #
-###
+### `std::unique_ptr`
+The safest and least complicated.
+
+> _"Unique ownership can be transferred to someone else, but it cannot be coppied..."_
+```cpp
+auto owner = std::make_unique<User>("John");
+auto new_owner = std::move(owner);
+```
+Unique pointers are very efficient, but cannot be passed in a CPU register when being used as part of a function – this makes them _slower_ than raw pointers.
+#
+### `std::shared_ptr`
+We use reference cournting to keep track of the number of owners and object has – at 0 owners, the obejct is deleted.
+
+`std::shared_ptr` is internally thread-safe, so the counter needs to be updated atomically to prevent race conditions.
+
+`std::make_shared<T>` is the preferred method, performing half of the work for the same outcome (reminds me of `++it` vs `it++`);
+<details>
+<summary>std::make_shared&lt;T&gt;</summary>
+
+```cpp
+#include <iostream>
+
+void* operator new (std::size_t size) {
+    void *p = std::malloc(size);
+    std::cout << "allocated " << size << " byte(s)" << '\n';
+    return p;
+}
+
+void operator delete(void *p) noexcept {
+    std::cout << "deleted memory\n";
+    return std::free(p);
+}
+
+int main()
+{
+    auto i = std::make_shared<double>(42.0);
+    
+    return 0;
+}
+
+// allocated 32 byte(s)
+// deleted memory
+// Program ended with exit code: 0
+```
+</details>
+
+<details>
+<summary>std::shared_ptr&lt;T&gt;(new T())</summary>
+
+```cpp
+#include <iostream>
+
+void* operator new (std::size_t size) {
+    void *p = std::malloc(size);
+    std::cout << "allocated " << size << " byte(s)" << '\n';
+    return p;
+}
+
+void operator delete(void *p) noexcept {
+    std::cout << "deleted memory\n";
+    return std::free(p);
+}
+
+int main()
+{
+    auto j = std::shared_ptr<double>(new double(42.0));
+    
+    return 0;
+}
+
+// allocated 8 byte(s)
+// allocated 32 byte(s)
+// deleted memory
+// deleted memory
+// Program ended with exit code: 0
+```
+</details>
+
+#
+### ...work in progress
