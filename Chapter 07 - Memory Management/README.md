@@ -486,4 +486,12 @@ void send_request(const std::string& request) {
 
 I'm not 100% sure on this statement, as `sizeof(std::optional<T>)` returns a value double the size of what `T` is normally... 
 #
-### ...next
+### Smart pointers
+These are really nice conceptual explanations of smart ponters.
+
+> * _"`std::unique_ptr` – unique ownership expresses tat I, and only I, own the object. When I'm done using it, I will delete it."_ 
+> * _"`std::shared_ptr` – shared ownership expresses that I own the object along with others. WHen no one needs the object anymore, it will be deleted."_
+> * _"`std::weak_ptr` – weak ownership expresses that I'll use the object if it exists, but don't keep it alive for me. "_
+
+#
+###
