@@ -63,7 +63,7 @@ See the code below for example outputs.
 
 [bm_linear_search.cpp](bm_linear_search.cpp) | [bm_linear_search_with_range.cpp](bm_linear_search_with_range.cpp) | [linear_vs_binary.cpp](linear_vs_binary.cpp)
 
-**EDIT (27/01/2023):** for Apple Silicon, brew will install packages in `/opt/homebrew/Cellar`; `/usr/bin/Cellar` is for Intel machines, i.e.
+**EDIT (27/01/2023):** for Apple Silicon, brew will install packages in `/opt/homebrew/Cellar`; `/usr/local/Cellar` is for Intel machines, i.e.
 
 * Headers:   `/opt/homebrew/Cellar/google-benchmark/1.7.1/include`
 * Libraries: `/opt/homebrew/Cellar/google-benchmark/1.7.1/lib`
