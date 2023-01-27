@@ -296,8 +296,7 @@ C++20 joins the party with the `std::has_single_bit` function from the `<bit>` h
   <summary>Example</summary>
   
   ```cpp
-  #include <iostream>
-#include <memory>
+#include <iostream>
 #include <cassert>
 #include <bit>
 
@@ -306,9 +305,7 @@ bool is_aligned(void* ptr, std::size_t alignment) {
     assert(std::has_single_bit(alignment));
 
     std::size_t s = std::numeric_limits<std::size_t>::max();
-
     void *aligned_ptr = ptr;
-
     std::align(alignment, 1, aligned_ptr, s);
 
     return ptr == aligned_ptr;
@@ -316,15 +313,24 @@ bool is_aligned(void* ptr, std::size_t alignment) {
 
 int main()
 {
-    int *p = new int;
-    assert(is_aligned(p, 4ul));
+    char *p = new char;
 
-    std::cout << "*p is aligned" << std::endl;
+    char *p1 = new char('a');
+    char *p2 = new char('b');
+
+    std::cout << alignof(std::max_align_t) << std::endl;
+
+    std::size_t max_alighment = alignof(std::max_align_t);
+
+    assert(is_aligned(p, max_alighment));
+    assert(is_aligned(p1, max_alighment));
+    assert(is_aligned(p2, max_alighment));
 
     return 0;
 }
   ```
   
 </details>
+
 #
 ### ...next
