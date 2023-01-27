@@ -56,12 +56,18 @@ To incorporate Google Benchmark functionality into an Xcode project, you must pe
   * e.g. `/usr/local/Cellar/google-benchmark/1.7.1/lib`
 * `Other Linker Flags`
   * `-lbenchmark`
-
+  
 Now you can run your project as you normally would, with the test output going straight to the console.
 
 See the code below for example outputs.
 
 [bm_linear_search.cpp](bm_linear_search.cpp) | [bm_linear_search_with_range.cpp](bm_linear_search_with_range.cpp) | [linear_vs_binary.cpp](linear_vs_binary.cpp)
+
+**EDIT (27/01/2023):** for Apple Silicon, brew will install packages in `/opt/homebrew/Cellar`; `/usr/bin/Cellar` is for Intel machines, i.e.
+
+* Headers:   `/opt/homebrew/Cellar/google-benchmark/1.7.1/include`
+* Libraries: `/opt/homebrew/Cellar/google-benchmark/1.7.1/lib`
+
 #
 ### Summary
 By far the most interesting part of this chapter has been Google Benchmark.
