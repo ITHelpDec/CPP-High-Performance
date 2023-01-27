@@ -438,6 +438,9 @@ By changing the order of the elements in an object, we can influence the overall
 // 
 // Program ended with exit code
   ```
-
   
 </details>
+  
+> _"...it should also be mentioned that it can be beneficial to place multiple data members that are frequently used together"_ – pg. 210
+#
+### ...next
