@@ -293,7 +293,7 @@ With portability in mind, we can check alignment by using `std::align` over modu
 
 C++20 joins the party with the `std::has_single_bit` function from the `<bit>` header to check that the argument passed isn't `nullptr` and that alignment is a power of 2 (stated as a requirement in the C++ standard).
 <details>
-  <summary>Example</summary>
+  <summary>Checking alignment</summary>
   
   ```cpp
 #include <iostream>
@@ -332,5 +332,112 @@ int main()
   
 </details>
 
+<details>
+  <summary>Specifying a custom alignment</summary>
+  
+  ```cpp
+  
+#include <iostream>
+
+struct alignas(64) Buffer {
+    std::byte data[64];
+};
+
+int main()
+{
+    alignas(32) int x;
+    alignas(64) int y;
+
+    std::cout << "Buffer: " << alignof(Buffer) << '\n';
+    std::cout << "x       " << alignof(x)      << '\n';
+    std::cout << "y       " << alignof(y)      << '\n';
+
+    return 0;
+}
+  ```
+</details>
+
 #
-### ...next
+### Padding
+**This has been the most interesting part of the chapter.**
+  
+By changing the order of the elements in an object, we can influence the overall size of the object - smaller size means faster iteration, so this is an easy, easy win for performance!
+  
+<details>
+  <summary>How rearranging members affects object size</summary>
+  
+  ```cpp
+  #include <iostream>
+
+ class Document1 {
+     bool is_cached_;
+     double rank_;
+     int id_;
+ };
+
+ class Document2 {
+     bool is_cached_;
+     int id_;
+     double rank_;
+ };
+
+ class Document3 {
+     double rank_;
+     bool is_cached_;
+     int id_;
+ };
+
+ class Document4 {
+     double rank_;
+     int id_;
+     bool is_cached_;
+ };
+
+ class Document5 {
+     int id_;
+     double rank_;
+     bool is_cached_;
+ };
+
+ class Document6 {
+     int id_;
+     bool is_cached_;
+     double rank_;
+ };
+
+ int main()
+ {
+     std::cout << "bool:      " << sizeof(bool)      << " bytes\n";     // 1
+     std::cout << "double:    " << sizeof(double)    << " bytes\n";     // 8
+     std::cout << "int:       " << sizeof(int)       << " bytes\n\n";   // 4
+
+     std::cout << "Document1: " << sizeof(Document1) << " bytes\n";     // 24
+     std::cout << "Document2: " << sizeof(Document2) << " bytes\n";     // 24
+     std::cout << "Document3: " << sizeof(Document3) << " bytes\n";     // 24
+     std::cout << "Document4: " << sizeof(Document4) << " bytes\n";     // 24
+     std::cout << "Document5: " << sizeof(Document5) << " bytes\n";     // 24
+     std::cout << "Document6: " << sizeof(Document6) << " bytes\n\n";   // 24
+
+     return 0;
+ }
+  
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// OUTPUT  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  
+// bool:      1 bytes
+// double:    8 bytes
+// int:       4 bytes
+// 
+// Document1: 24 bytes
+// Document2: 16 bytes
+// Document3: 16 bytes
+// Document4: 16 bytes
+// Document5: 24 bytes
+// Document6: 16 bytes
+// 
+// Program ended with exit code
+  ```
+
+  
+</details>
