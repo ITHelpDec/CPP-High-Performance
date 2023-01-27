@@ -573,4 +573,13 @@ int main()
 </details>
 
 #
+### `std::weak_ptr`
+This is a really nice description of the reasons for using a `std::weak_ptr`
+> _"Weak ownership doesn't keepany objects alive; it only allows us to use an object if someone else owns it."_ – pg. 216
+  
+> _"One common reason for using a weak pointer is to break a reference cycle. A reference cycle occurs when two or more objects refer to each other using shared pointers. Even if all external std::shared_ptr constructors are gone, the objects are kept alive by referring to themselves."_ – pg. 216
+  
+> _"A weak pointer is safe to use since we cannot reference the object unless it actually exists, which is not the case with a dangling raw pointer."_ – pg. 216
+  
+#
 ### ...work in progress
