@@ -443,4 +443,47 @@ By changing the order of the elements in an object, we can influence the overall
   
 > _"...it should also be mentioned that it can be beneficial to place multiple data members that are frequently used together"_ – pg. 210
 #
+### Ownership
+**_RAII_** is a concept of huge importance in the pursuit of memory-safe code through predictable object lifetimes.
+
+<details>
+<summary>RAIIConnection class</summary>
+
+```cpp
+class RAIIConnection {
+public:
+    explicit RAIIConnection(const std::string& url) : connection_(open_connection(url)) { }
+    
+    ~RAIIConnection()
+    {
+        try {
+            close(connection_);
+        } catch (const std::exception &e) {
+            // Handle error, but never throw from a destructor
+        }
+    }
+    
+    Connection& get() { return connection_; }
+private:
+    Connection connection_;
+};
+
+void send_request(const std::string& request) {
+    RAIIConnection connection("https://eyebleach.me/kittens/");
+    send_request(connection.get(), request);
+
+    // close(connection);
+    // No need to close the connection above
+    // it is automatically handled by the RAIIConnection destructor
+}
+
+```
+</details>
+
+#
+### Containers
+> _"It's also possible to use `std::optional` to handle the lifetime of an object that might or might not exist. `std::optional` can be seen as a container with a maximum size of 1."_ – pg. 213
+
+I'm not 100% sure on this statement, as `sizeof(std::optional<T>)` returns a value double the size of what `T` is normally... 
+#
 ### ...next
