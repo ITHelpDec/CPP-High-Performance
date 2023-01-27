@@ -288,4 +288,43 @@ int main()
 ### `new` and `delete` operators
 I've already done a full breakdown of these operators in C++ Primer all the way up to C++17 [here](https://github.com/ITHelpDec/CPP-Primer/blob/f0b1d8cba07f2b00accf0937696cb11cd8a85898/Chapter%2019%20–%20Specialised%20Tools%20and%20Techniques/19.01.cpp).
 #
+### Alignment
+With portability in mind, we can check alignment by using `std::align` over modulo (`%`), or also `std::max_align_t` (which we will use to write custom memory allocations later on).
+
+C++20 joins the party with the `std::has_single_bit` function from the `<bit>` header to check that the argument passed isn't `nullptr` and that alignment is a power of 2 (stated as a requirement in the C++ standard).
+<details>
+  <summary>Example</summary>
+  
+  ```cpp
+  #include <iostream>
+#include <memory>
+#include <cassert>
+#include <bit>
+
+bool is_aligned(void* ptr, std::size_t alignment) {
+    assert(ptr != nullptr);
+    assert(std::has_single_bit(alignment));
+
+    std::size_t s = std::numeric_limits<std::size_t>::max();
+
+    void *aligned_ptr = ptr;
+
+    std::align(alignment, 1, aligned_ptr, s);
+
+    return ptr == aligned_ptr;
+}
+
+int main()
+{
+    int *p = new int;
+    assert(is_aligned(p, 4ul));
+
+    std::cout << "*p is aligned" << std::endl;
+
+    return 0;
+}
+  ```
+  
+</details>
+#
 ### ...next
