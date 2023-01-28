@@ -623,4 +623,59 @@ int main()
 </details>
   
 #
-### ...work in progress
+### Small object optimisation
+Below is an interesting example of how std::vector dynamically allocates memory when the contents extend beyond the normal realms of the stack size.
+<details>
+<summary>std::vector</summary>
+
+```cpp
+#include <iostream>
+
+std::size_t allocated = 0;
+
+void* operator new(std::size_t size) {
+    void *p = std::malloc(size);
+    allocated += size;
+    return p;
+}
+
+void operator delete(void *p) noexcept {
+    std::free(p);
+}
+
+int main()
+{
+    // default size
+    std::string s;
+    
+    std::cout << "stack space = " << sizeof(s)    << ','
+              << " heap space = " << allocated    << ','
+              << " capacity = "   << s.capacity() << '\n';
+    
+    // 22 characters + '\0'
+    std::string t = "1234567890123456789012";
+    
+    std::cout << "stack space = " << sizeof(t)    << ','
+              << " heap space = " << allocated    << ','
+              << " capacity = "   << t.capacity() << '\n';
+    
+    // 23 characters + '\0' – goes beyond stack
+    std::string u = "12345678901234567890123";
+    
+    std::cout << "stack space = " << sizeof(u)    << ','
+              << " heap space = " << allocated    << ','
+              << " capacity = "   << u.capacity() << '\n';
+    
+    return 0;
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// OUTPUT  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// stack space = 24, heap space = 0, capacity = 22
+// stack space = 24, heap space = 0, capacity = 22
+// stack space = 24, heap space = 32, capacity = 31
+// Program ended with exit code: 0
+```
+</details>
