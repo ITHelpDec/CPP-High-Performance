@@ -742,3 +742,9 @@ Knowing the following conditions in advance can help us optimise our area:
 3. Limited lifetime (we can time reclamation more efficiently, although need to know size ahead of time)
 
 [Arena.h](Arena.h) | [main.cpp](main.cpp)
+
+Xcode does a great job of highlighting potential memory leaks, either through **_Xcode Analyse_** or through **_Instruments_**
+
+![](Xcode%20Analyse.png)
+#
+### ...next
