@@ -679,3 +679,49 @@ int main()
 // Program ended with exit code: 0
 ```
 </details>
+
+<details>
+<summary>Usings unions</summary>
+
+```cpp
+#include <iostream>
+
+// heap version
+struct Long {
+    std::size_t capacity_;
+    std::size_t size_;
+    char *data_;
+};
+
+// stack version
+struct Short {
+    unsigned char size_;
+    char data_[23];
+};
+
+union u_ {
+    // flag used to opt between the two e.g. an enum
+    // enum { SHORT, LONG };
+    Short short_;
+    Long long_;
+};
+
+int main()
+{
+    std::cout << "Long: " << sizeof(Long)  << '\n';
+    std::cout << "Short " << sizeof(Short) << '\n';
+    std::cout << "u_    " << sizeof(u_)    << '\n';
+    
+    return 0;
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// OUTPUT  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// Long: 24
+// Short 24
+// u_    24
+// Program ended with exit code: 0
+```
+</details>
