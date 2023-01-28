@@ -725,3 +725,20 @@ int main()
 // Program ended with exit code: 0
 ```
 </details>
+
+#
+### Custom memory management
+`new` and `std::malloc` are very powerful, but there may be instances where we can eek extra performance by creating our own custom memory allocator.
+
+We can do this by:
+1. Analysing the exact memory usage patterns, and
+2. Implementing an arena
+
+#
+### Building an arena
+Knowing the following conditions in advance can help us optimise our area:
+1. Single-threaded (no need for atomics)
+2. Fixed-size allocations (easier to reclaim memory without worrying about fragmentation)
+3. Limited lifetime (we can time reclamation more efficiently, although need to know size ahead of time)
+
+[Arena.h](Arena.h) | [main.cpp](main.cpp)
