@@ -745,6 +745,11 @@ Knowing the following conditions in advance can help us optimise our area:
 
 Xcode does a great job of highlighting potential memory leaks, either through **_Xcode Analyse_** or through **_Instruments_**
 
+<details>
+<summary>Xcode Analyse in action</summary>
+
 ![](Xcode%20Analyse.png)
+</details>
+
 #
 ### ...next
