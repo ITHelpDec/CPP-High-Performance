@@ -1,4 +1,7 @@
 // The infamous "Mallocator" - a stateless allocator
+
+#include <iostream>
+
 template <class T> struct Mallocator {
     using value_type = T;
     
