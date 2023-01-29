@@ -758,3 +758,60 @@ Our previous `Arena.h` header does not support STL containers or unique pointers
 Below is an simplified example of _The Mallocator_, as well as a simplified implementation of Howard Hinnant's `short_alloc` and a test `main.cpp`
 
 [mallocator.h](mallocator.h) | [short_alloc.h](short_alloc/short_alloc.h) | [main.cpp](short_alloc/main.cpp)
+#
+### `std::pmr`
+All memory resources derive from the base class `std::pmr::memory_resource`, which reside in the `<memory_resource>` header.
+* `std::pmr::monotonic_buffer_resource`
+  * similar to `Arena` class - great for creating many object with short lifetimes
+* `std::pmr::unsynchronized_pool_resource`
+  * uses memory pools called 'slabs' containing fixed-size memory blocks, which avoids fragmentation
+  * each pool hands out memory for objects of a certain size
+  * beneficial if creating many objects of different sizes
+  * not thread-safe (unless you provide external synchronisation)
+* `std::pmr::synchronized_pool_resource`
+  * thread safe version of above
+
+#
+### Upstream memory resources
+`std::pmr::memory_resource` also provides us with the ability to chain our memory resources if the current resource cannot handle the request, or when the resource itelf needs to allocate memory.
+* `std::pmr::new_delete_resource()`
+  * use global `operator new` / `operator delete`
+* `std::pmr::numm_memory_resource()`
+  * throws `std::bad_alloc` whenever it is asked to allocate memory
+* `std::pmr::get_default_resource()`
+  * returns a globally default memory resource that can be set at runtime by `std::pmr::set_default_resource()`
+  * the initial default resource is `std::pmr::new_delete_resource()`
+  
+<details>
+<summary>Example of std::pmr in action</summary>
+
+```cpp
+#include <array>
+#include <memory_resource>
+#include <set>
+#include <iostream>
+
+int main()
+{
+    std::array<std::byte, 512> buffer;
+
+    std::pmr::monotonic_buffer_resource
+        resource(buffer.data(), buffer.size(), std::pmr::new_delete_resource());
+
+    std::pmr::set<int> unique_numbers(&resource);
+
+    std::cout << "Please enter some numbers: ";
+    for (int i = 5; i != 0; --i) { unique_numbers.insert(i); }
+
+    for (const auto &e : unique_numbers) {
+        std::cout << e << ' ';
+    } std::cout << '\n';
+
+    return 0;
+}
+```
+</details>
+
+Again, though, doesn't play well with `clang` - _most_ of the functions exist within `std::experiemental::pmr::`, but had to use [godbolt](https://godbolt.org/z/bxbnGjMWd) to take advanage of `std::pmr::monotonic_buffer_resource` from the example.
+
+I'll have to test using Google Benchmark or Instruments to see what the actual benefit is.
