@@ -815,3 +815,14 @@ int main()
 Again, though, doesn't play well with `clang` - _most_ of the functions exist within `std::experiemental::pmr::`, but had to use [godbolt](https://godbolt.org/z/bxbnGjMWd) to take advanage of `std::pmr::monotonic_buffer_resource` from the example.
 
 I'll have to test using Google Benchmark or Instruments to see what the actual benefit is.
+#
+### Summary
+There were some parts of this chapter that were fascinating, but the latter part around the juicy part of writing custom memory allocators feels a bit lacklustre – I feel like it spent more time on the _"what"_, and less on the _"how"_ and all-important _"why"_.
+  
+Reading code for a generic allocator was interesting, but why? How does this really give me better performance, or maybe _"how much"_ of a performance boost will I get by using the custom allocator over using the standard allocators? In what circumstances will I really see a benefit or want to see a benefit (with specific examples)? I feel like it needed more context of direct impact.
+  
+> _"I encourage you to carefully measure and analyze the memory access patterns in your application before you use and/or implement custom allocators"_ – pg. 236
+  
+This is a really interesting concept and it would have been nice if more time were given to how to monitor and analyse our memory access patterns in a variety of examples.
+  
+John Lakos' CPPCon talks ([here](https://www.youtube.com/watch?v=nZNd5FjSquk&t=2129s)) might be insightful for anyone who's interested.
