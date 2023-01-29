@@ -741,7 +741,7 @@ Knowing the following conditions in advance can help us optimise our area:
 2. Fixed-size allocations (easier to reclaim memory without worrying about fragmentation)
 3. Limited lifetime (we can time reclamation more efficiently, although need to know size ahead of time)
 
-[Arena.h](Arena.h) | [main.cpp](main.cpp)
+[Arena.h](Arena/Arena.h) | [main.cpp](Arena/main.cpp)
 
 Xcode does a great job of highlighting potential memory leaks, either through **_Xcode Analyse_** or through **_Instruments_**
 
@@ -752,4 +752,9 @@ Xcode does a great job of highlighting potential memory leaks, either through **
 </details>
 
 #
-### ...next
+### Custom memory allocation
+Our previous `Arena.h` header does not support STL containers or unique pointers – we can add support to these containers by creating a custom memory allocation.
+
+Below is an simplified example of _The Mallocator_, as well as a simplified implementation of Howard Hinnant's `short_alloc` and a test `main.cpp`
+
+[mallocator.h](mallocator.h) | [short_alloc.h](short_alloc/short_alloc.h) | [main.cpp](short_alloc/main.cpp)
