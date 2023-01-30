@@ -130,7 +130,7 @@ constexpr int nice = 69; // nice
 ### `constexpr` vs polymoprhism
 It should be no surprise that things calculated at compile-time ought to run faster than those calculated at run-time.
 
-The cmake files from the website do not work, so I created such rough Google benchmarks – classes and benchmark comparison are atttached below.
+The cmake files from the website did not work for me, so I created some rough Google benchmarks, with results showing `constexpr` being 3x faster than polymorphism (classes and benchmark comparisons are atttached below).
 
 [AnimalPolymorphic.cpp](AnimalPolymorphic.cpp) | [AnimalConstexpr.cpp](AnimalConstexpr.cpp) | [bm_animal.cpp](bm_animal.cpp)
 
