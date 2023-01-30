@@ -127,4 +127,12 @@ int main()
 constexpr int nice = 69; // nice
 ```
 #
+### `constexpr` vs polymoprhism
+It should be no surprise that things calculated at compile-time ought to run faster than those calculated at run-time.
+
+The cmake files from the website do not work, so I created such rough Google benchmarks – classes and benchmark comparison are atttached below.
+
+[AnimalPolymorphic.cpp](AnimalPolymorphic.cpp) | [AnimalConstexpr.cpp](AnimalConstexpr.cpp) | [bm_animal.cpp](bm_animal.cpp)
+
+#
 ### ...work in progress
