@@ -135,4 +135,12 @@ The cmake files from the website did not work for me, so I created some rough Go
 [AnimalPolymorphic.cpp](AnimalPolymorphic.cpp) | [AnimalConstexpr.cpp](AnimalConstexpr.cpp) | [bm_animal.cpp](bm_animal.cpp)
 
 #
+### `if constexpr` in action
+I tweaked the original function from the book to make it more flexible to inputs of multiple types (the book's example forces you to use examples of matching pairs i.e. int and int, or double and double).
+    
+And brace yourselves - I _have_ used a trailing return type...for pure utilitarianism though, not for `auto` member-function alignment fetishisation (sorry to disappoint).
+    
+[generic_mod.cpp](generic_mod.cpp)
+
+#
 ### ...work in progress
