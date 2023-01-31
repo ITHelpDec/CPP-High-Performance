@@ -172,4 +172,32 @@ dist(const Point2D<T, U> &p1, const Point2D<V, W> &p2)
 ```
 [Point2D.cpp](Point2D.cpp)
 #
+## Concepts
+A big new topic as of C++20
+```cpp
+template <typename T>
+concept FloatingPoint = std::is_floating_point_v<T>;
+```
+```cpp
+template <typename T>
+concept Number = FloatingPoint<T> || std::is_integral_v<T>;
+```
+<details>
+<summary>definition of concept std::range in Ranges library</summary>
+
+```cpp
+// compiles on Xcode
+// maybe this will allow me to run my code from earlier chapters
+#include <__ranges/concepts.h>
+
+template <typename T>
+concept range = requires(T &t) {
+    std::ranges::begin(t);
+    std::ranges::end(t);
+};
+```
+
+</details>
+
+#
 ### ...work in progress
