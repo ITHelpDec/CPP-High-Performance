@@ -198,6 +198,35 @@ concept range = requires(T &t) {
 ```
 
 </details>
+<details>
+<summary>std::integral</summary>
 
+``` cpp
+#include <concepts>
+#include <iostream>
+
+// from the book (not a great example)
+std::integral auto mod(std::integral auto v, std::integral auto n)
+{
+    return v % n;
+}
+
+int main()
+{
+    // fine
+    std::cout << mod(3, 2) << '\n';     // 1
+    
+    // legal, but defeats the purpose of all the constraints
+    std::cout << mod('o', 2) << '\n';   // 1
+    
+    return 0;
+}
+
+```
+
+</details>
+
+#
+###
 #
 ### ...work in progress
