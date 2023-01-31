@@ -161,7 +161,7 @@ And brace yourselves - I _have_ used a trailing return type...for pure utilitari
 With these in mind, favouring `static_assert` would allow us to avoid writing / compiling programmes that might lead to runtime errors later down the line.
 #
 ### Unconstrained `Point2D` template
-Could use multiple typenames, but `auto` here can tidy up the code up nicely - just need to be careful not to make it overly-generic in case someone decides to pass a string as an argument.
+Could use multiple typenames, but `auto` here can tidy up the code up nicely - just need to be careful not to make it overly-generic in case someone decides to pass a string as an argument (EDIT: this is actually covered in the next few pages).
 
 The typename solution doesn't scale well beyond two arguments, but provides a more understandable autocomplete within the IDE, so it's easier to know what parameters are expected.
 
