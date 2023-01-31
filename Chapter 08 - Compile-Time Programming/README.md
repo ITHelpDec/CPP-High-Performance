@@ -143,4 +143,12 @@ And brace yourselves - I _have_ used a trailing return type...for pure utilitari
 [generic_mod.cpp](generic_mod.cpp)
 
 #
+### Checking programming errors at compile time
+> _"...if we have a constant expression, we can catch programming errors when compiling the program using `static_assert()`."_ – pg. 253
+
+* `assert` - runtime asserts
+* `static_assert` - compile-time asserts
+
+With these in mind, favouring `static_assert` would allow us to avoid writing / compiling programmes that might lead to runtime errors later down the line.
+#
 ### ...work in progress
