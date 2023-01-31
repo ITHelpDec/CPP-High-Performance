@@ -235,6 +235,27 @@ Considering they do the same thing, I'll have to benchmark the differences betwe
 [Point2D_concepts.cpp](Point2D_concepts.cpp)
 
 #
+### Compile-time string optimisations
+This is fasinating.
+> _"In order to enable the compiler to calculate the hash sum at compile time, we rewrite hash_function() so that it takes a raw null-terminated char string as a parameter [instead] of an advanced class like std::string, which cannot be evaluated at compile time."_ – pg. 270
+
+If this is the case and performance is the goal, then perhaps it would be better for favour `const char*` over `std::string`?
+```cpp
+constexpr std::size_t hash_function(const char* str) {
+    size_t sum = 0;
+    for (auto ptr = str; *ptr != '\0'; ++ptr)
+        sum += *ptr;
+    return sum;
+}
+```
+I've done a Google Benchmark of this hasher function using `const char*`, `std::string` and `std::string_view`, and `const char*` came out trumps. `std::string_view` wasn't far behind, but `std::string` was about 4-5 times slower on my machine.
+
+Looking at the assembly instructions on [Godbolt](https://godbolt.org/z/aKssefKcs), using `constexpr` drops the instruction count _**considerably**_ from 47 lines to 17 (10 with `-O2`, although `std::string` and `std::string_view` also reduce to 10 instructions with the same optimisations).
+
+Seriously impressive though.
+
+[cts_benchmark.cpp](cts_benchmark.cpp)
+#
 ###
 #
 ### ...work in progress
