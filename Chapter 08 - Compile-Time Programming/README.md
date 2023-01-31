@@ -227,6 +227,14 @@ int main()
 </details>
 
 #
+### `Point2D` with concepts
+The example linked below now mirrors what my previous template design did (slight modification from book to include mixed types).
+
+Considering they do the same thing, I'll have to benchmark the differences between concepts and templates to see which is faster.
+
+[Point2D_concepts.cpp](Point2D_concepts.cpp)
+
+#
 ###
 #
 ### ...work in progress
