@@ -120,6 +120,15 @@ int main()
 </details>
 
 #
+### `consteval`
+> _"A function that is declared using consteval is called an immediate function and can only produce constants"_ – pg. 248
+
+```cpp
+consteval int sum(int x, int y, int z) { return x + y + z; }
+constexpr int value = sum(3, 4, 5); // fine
+int value2 = sum(4, 5, 6); // not so fine
+```
+#
 ### Programming with `constexpr`
 > _"An expression prefixed with the `constexpr` keyword tells the compiler that the expression should be evaluated at compile time"_ – pg. 247
 
