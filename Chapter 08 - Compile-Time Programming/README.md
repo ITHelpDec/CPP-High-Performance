@@ -236,10 +236,10 @@ Considering they do the same thing, I'll have to benchmark the differences betwe
 
 #
 ### Compile-time string optimisations
-This is fasinating.
+This is fascinating.
 > _"In order to enable the compiler to calculate the hash sum at compile time, we rewrite hash_function() so that it takes a raw null-terminated char string as a parameter [instead] of an advanced class like std::string, which cannot be evaluated at compile time."_ – pg. 270
 
-If this is the case and performance is the goal, then perhaps it would be better for favour `const char*` over `std::string`?
+If this is the case and performance is the goal, then perhaps it would be better for favour `const char*` over `std::string` under certain circumstances?
 ```cpp
 constexpr std::size_t hash_function(const char* str) {
     size_t sum = 0;
