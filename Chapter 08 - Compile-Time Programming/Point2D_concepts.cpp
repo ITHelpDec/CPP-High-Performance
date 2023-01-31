@@ -2,7 +2,10 @@
 #include <iostream>
 #include <cmath>
 
-template <typename T, typename U>
+template <typename T>
+concept Arithmetic = std::is_arithmetic_v<T>;
+
+template <Arithmetic T, Arithmetic U>
 class Point2D {
 public:
     Point2D(T x, U y) : x_(x), y_(y) { }
@@ -17,9 +20,8 @@ private:
 template <typename T>
 concept Point = requires(T p) {
     // don't need to be the same type, just need to be arithmetic
-    // this is actually quite useful -
-    requires std::is_arithmetic_v<decltype(p.x())> &&
-             std::is_arithmetic_v<decltype(p.y())>;
+    // this is actually quite useful
+    requires Arithmetic<decltype(p.x())> && Arithmetic<decltype(p.y())>;
 };
 
 auto dist(Point auto p1, Point auto p2) {
