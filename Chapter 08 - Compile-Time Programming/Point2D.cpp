@@ -7,8 +7,8 @@ class Point2D {
 public:
     Point2D(T x, U y) : x_(x), y_(y) { }
     
-    auto x() const { return x_; }
-    auto y() const { return y_; }
+    T x() const { return x_; }
+    U y() const { return y_; }
     
 private:
     T x_;
