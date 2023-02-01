@@ -8,7 +8,7 @@ Template metaprogramming allows us to write code that transforms itself into reg
 ![](metaprogramming.jpg)
 #
 ### Templates
-See [Chapter 16](https://github.com/ITHelpDec/CPP-Primer/tree/main/Chapter%2016%20-%20Templates%20and%20Generic%20Programming) from my C++ Primer repo for more in-depth example of templates and template specialisations.
+See [Chapter 16](https://github.com/ITHelpDec/CPP-Primer/tree/main/Chapter%2016%20-%20Templates%20and%20Generic%20Programming) from my C++ Primer repo for more in-depth examples of templates and template specialisations.
 #
 ### Receiving the type of a variable with `decltype`
 As of C++20, we can use `std::cvref_remove` from `<type_traits>` to help with abbreviated function templates - previously we would have used `std::decay` (see next example).
@@ -252,10 +252,18 @@ I've done a Google Benchmark of this hasher function using `const char*`, `std::
 
 Looking at the assembly instructions on [Godbolt](https://godbolt.org/z/aKssefKcs), using `constexpr` drops the instruction count _**considerably**_ from 47 lines to 17 (10 with `-O2`, although `std::string` and `std::string_view` also reduce to 10 instructions with the same optimisations).
 
-Seriously impressive though.
+Seriously impressive though
 
-[cts_benchmark.cpp](cts_benchmark.cpp)
+[cts_benchmark.cpp](cts_benchmark.cpp) | (EDIT: `consteval` makes the function [even faster!!](https://quick-bench.com/q/PxQ97mM_0e7SU6cyBMIh_FW7abA))
+
+It might also be worth noting that it is possible to use `std::accumulate` to make the code more declarative.
+```cpp
+std::size_t hash_function(std::string_view s) {
+    return std::accumulate(s.begin(), s.end(), 0);
+} // std::accumulate is now also constexpr as of C++20
+```
 #
-###
-#
-### ...work in progress
+### Summary
+Really interesting chapter.
+
+Nothing new gained from what was covered in template metaprogamming, and `concepts` was grazed over (still feels like syntactic sugar), but `constexpr` / `if constexpr`, `consteval`, `type_traits` and `static_assert`'s alongside compile-time evaluation will prove invaluable for offloading what would normally be an expensive operation at runtime to something we can pre-calculate at compile-time, thus hopefully making our programmes much faster.
