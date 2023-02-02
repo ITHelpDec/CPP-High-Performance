@@ -114,4 +114,37 @@ std::sort(optivec.begin(), optivec.end(); // { { }, { }, { 1 }, { 2 }, { 3 } }
 ```
 `std::optional` is an _"efficient and safe alternative"_ to previous methods, but I would like to run or see some more benchmark comparisons and implementations before making up my mind.
 #
+### `std::pair` and `std::tuple`
+Both of these heterogenous / hetergeneous containers can be instantiated with an arbitrary size at compile time.
+#
+### `std::pair`
+`std::minmax()` from earlier is a great example of where to use pairs, as is `std::equal_range`
+```cpp
+std::pair<int, int> mm = std::minmax( { 1, 2, 3, 4, 5 } ); // [1, 5]
+```
+Interesting to see that using `.emplace()` in `std::map` is more efficient than using `.insert()` (benchmark [here](https://godbolt.org/z/Ys7MM9qns)).
+
+Structured bindings are also the bee's knees when it comes to readability over p.first and p.second (love structured bindings).
+```cpp
+for (const auto &[key, value] : map) {
+    std::cout << key << ' ' << value << '\n';
+} std::cout << '\n';
+```
+#
+### `std::tuple`
+A nice addition to the book – given the comparision to structs on page 281 – might be that `std::tuple` also falls victim to the padding dilemma covered in [Chapter 7](../Chapter%2007%20-%20Memory%20Management#padding) when types are laid out without due prior consideration.
+
+[sizeof_tuple.cpp](sizeof_tuple.cpp)
+
+I have more detailed examples of tuples in my C++ Primer repo [here](https://github.com/ITHelpDec/CPP-Primer/search?q=std%3A%3Atuple).
+
+In terms of calling variables, if our tuple contains only one of any kind (like some sort of non-space-sacing `union`) then we can pass a typename parameter to `std::get` to retieve it.
+```cpp
+std::tuple<int, bool, std::string> t = { 69, true, "nice" };
+std::get<std::string>(t); // nice
+```
+#
+### Iterating through a `std::tuple`
+Now **_this_** is juicy...
+#
 ### ...work in progress
