@@ -184,5 +184,22 @@ sizeof(std::variant<std::string>>) == sizeof(std::string) + sizeof(std::size_t)
 We use `std::holds_alternative<T>(std::variant<Args...>)` to sanity check for specific elements and change the token.
 
 Will have to benchmark at some point to measure the difference between it and a union.
+### Handling exceptions with `std::variant`
+> _"When a new value is assigned to a std::variant object, it is placed in the same location as the currently held value of the variant."_
+
+> _"If, for some reason, the construction or assignment of the new value fails and throws an exception, the old value may not be restored. Instead, the variant can become valueless."_
+
+> "_You can check whether a variant object is valueless by using the member function valueless_by_ exception(). This can be demonstrated when trying to construct an object using the emplace() member function"_ – pg. 293
+
+[Widget.cpp](Widget.cpp)
+
+#
+### `std::visit`
+Using `std::visit` to access the love element of a variant
+```cpp
+std::apply( [] (auto &&e) { std::cout << e << '\n'; } , v);
+```
+[visit.cpp](visit.cpp)
+
 #
 ### ...work in progress
