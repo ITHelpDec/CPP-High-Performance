@@ -146,5 +146,34 @@ std::get<std::string>(t); // nice
 #
 ### Iterating through a `std::tuple`
 Now **_this_** is juicy...
+
+There are some great examples of how to port some useful STL algorithms, such that they can be used with typles, but with `std::apply`, the author's code can be shrunk down to one line and templatised thereafter.
+```cpp
+std::apply([] (auto&& ...e) { ( (std::cout << e << ' '), ...); }, t);
+```
+[for_each_tuple.cpp](for_each_tuple.cpp) | [any_of_tuple.cpp](any_of_tuple.cpp)
+#
+### Structured bindings
+Structured bindings are the best - assigning multiple variables went from...
+```cpp
+std::string name;
+int n_moons;
+bool rings;
+
+std::tie(name, n_moons, rings) = std::tuple("Saturn", 82, true);
+```
+...to...
+```cpp
+const auto &[name, n_moons, rings] = std::tuple("Saturn", 82, true);
+```
+#
+### Variadic templates
+I have loads of variadic template work from Chapter 16 of my C++ Primer repo [here](https://github.com/ITHelpDec/CPP-Primer/search?q=...Args), but the typical structure is below.
+```cpp
+template <typename ...Args>
+void (Args ...rest) {
+    performActionOn(rest...);
+}
+```
 #
 ### ...work in progress
