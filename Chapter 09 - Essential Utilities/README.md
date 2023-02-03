@@ -176,4 +176,14 @@ void (Args ...rest) {
 }
 ```
 #
+###
+`std::variant`
+Basically a `union` without the need for an `enum` - it stores its token internally in a `std::size_t`.
+```cpp
+sizeof(std::variant<std::string>>) == sizeof(std::string) + sizeof(std::size_t)
+```
+We use `std::holds_alternative<T>(std::variant<Args...>)` to sanity check for specific elements and change the token.
+
+Will have to benchmark at some point to measure the difference between it and a union.
+#
 ### ...work in progress
