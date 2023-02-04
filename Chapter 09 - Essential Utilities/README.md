@@ -221,6 +221,8 @@ std::get<T>();
 ### Real-world applications
 * Sorting structs
 
+The author's `if ... else ...` predicates are a touch verbose; they can defintely be refactored into something more legible (as I've done in the examples below), but this is a good exercise for refactoring – you can also start to see the benefits of the `std::ranges` library coming through in this example.
+
 [the_quest_for_terseness.cpp](the_quest_for_terseness.cpp)
 
 #
