@@ -233,5 +233,20 @@ We can collate members into a tuple for easier iteration using `std::tie` – as
     
 We could take this concept a step further and use it as part of an overload for `operator<<` – this would make it easier to print out tuples as part of a class or struct, simply using the likes of `std::cout << t << '\n';`.
 
+### Using `concepts` with reflection
+We can use concepts to instantiate specific overloads of `operator<<` for objects that have reflect members.
+```cpp
+template <typename T>
+concept Reflectable = requires (T &t) {
+    t.reflect();
+};
+
+std::ostream& operator<<(std::ostream &os, const Reflectable auto &t) { /*....*/ }
+```
 #
-### ...work in progress
+### Summary
+Quite a good chapter.
+
+I'll need to experiment more with `std::optional`; structured bindings are a gift (but I've been using them for a while); tuples were covered in great detail (plenty of useful things in there); variants look to be a better union(?), but even if they aren't, at least we now know how to iterate through them.
+
+Definitely one of the better chapters.
