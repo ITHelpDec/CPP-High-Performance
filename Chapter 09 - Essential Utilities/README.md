@@ -210,4 +210,18 @@ Two template functions to return if a certain item is found in a variant or a ve
 N.B. always remember to include a `return` if it's needed - template functions have terrible error messages, and it'll save you a lot of heartache.
 
 #
+### Versions of `std::get`
+We've used them already, but to summarise:
+```cpp
+std::get<index>();
+std::get<T>();
+```
+
+#
+### Real-world applications
+* Sorting structs
+
+[the_quest_for_terseness.cpp](the_quest_for_terseness.cpp)
+
+#
 ### ...work in progress
