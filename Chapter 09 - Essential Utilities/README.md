@@ -2,7 +2,7 @@
 
 ## Highlights from Chapter 9 - "Essential Utilities"
 
-### Homegenous vs heterogenous (or [homogeneous vs heterogeneous](https://english.stackexchange.com/questions/288542/homogenous-versus-homogeneous))
+### Homogenous vs heterogenous (or [homogeneous vs heterogeneous](https://english.stackexchange.com/questions/288542/homogenous-versus-homogeneous))
 Homogeneous containers
 * `std::vector<int>`
 * `std::list<Boat>`
@@ -200,6 +200,12 @@ Using `std::visit` to access the love element of a variant
 std::apply( [] (auto &&e) { std::cout << e << '\n'; } , v);
 ```
 [visit.cpp](visit.cpp)
+
+#
+### Heterogen(e)nous containers holding `std::variant`
+Template functions provide the worst warnings...two template functions to return if a certain item is found in a variant or a vector of variants
+
+[in_variant_vec.cpp](in_variant_vec.cpp)
 
 #
 ### ...work in progress
