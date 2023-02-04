@@ -227,7 +227,7 @@ The author's `if ... else ...` predicates are a touch verbose; they can defintel
 
 * __Collating members in a tuple (reflection)__
 
-We can collate members into a tuple for easier iteration using `std::tie` – as much as I diss `auto`, this is a situation where it really comes in handy.
+We can collate members into a tuple for easier iteration using `std::tie` – as much of a hard time as I give `auto`, this is a situation where it really comes in handy.
 
 [reflection.cpp](reflection.cpp)
 
