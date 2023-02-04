@@ -3,11 +3,11 @@
 ## Highlights from Chapter 9 - "Essential Utilities"
 
 ### Homogenous vs heterogenous (or [homogeneous vs heterogeneous](https://english.stackexchange.com/questions/288542/homogenous-versus-homogeneous))
-Homogeneous containers
+__Homogeneous containers__
 * `std::vector<int>`
 * `std::list<Boat>`
 
-Heterogeneous
+__Heterogeneous__
 * `std::optional`
 * `std::pair`, `std::tuple`, `std::tie()`
 * `std::any`, `std::variant`
@@ -102,7 +102,7 @@ Colour get_colour();
 ...and in with the new!
 ```cpp
 enum class Colour { red, black };
-std::optiona<Colour> get_colour();
+std::optional<Colour> get_colour();
 ```
 #
 ### Sorting and comparisons
@@ -112,7 +112,7 @@ std::optiona<Colour> get_colour();
 std::vector<std::optional<int>> optivec = { { 3 }, { 2 }, { 1 }, { }, { } };
 std::sort(optivec.begin(), optivec.end(); // { { }, { }, { 1 }, { 2 }, { 3 } }
 ```
-`std::optional` is an _"efficient and safe alternative"_ to previous methods, but I would like to run or see some more benchmark comparisons and implementations before making up my mind.
+`std::optional` is said to be an _"efficient and safe alternative"_ to previous methods, but I would like to run or see some more benchmark comparisons and implementations before making up my mind.
 #
 ### `std::pair` and `std::tuple`
 Both of these heterogenous / hetergeneous containers can be instantiated with an arbitrary size at compile time.
@@ -147,7 +147,7 @@ std::get<std::string>(t); // nice
 ### Iterating through a `std::tuple`
 Now **_this_** is juicy...
 
-There are some great examples of how to port some useful STL algorithms, such that they can be used with typles, but with `std::apply`, the author's code can be shrunk down to one line and templatised thereafter.
+There are some great examples of how to port some useful STL algorithms, such that they can be used with tuple, but with `std::apply`, the author's code can be shrunk down to one line and templatised thereafter.
 ```cpp
 std::apply([] (auto&& ...e) { ( (std::cout << e << ' '), ...); }, t);
 ```
@@ -230,6 +230,8 @@ The author's `if ... else ...` predicates are a touch verbose; they can defintel
 We can collate members into a tuple for easier iteration using `std::tie` – as much of a hard time as I give `auto`, this is a situation where it really comes in handy.
 
 [reflection.cpp](reflection.cpp)
+    
+We could take this concept a step further and use it as part of an overload for `operator<<` – this would make it easier to print out tuples as part of a class or struct, simply using the likes of `std::cout << t << '\n';`.
 
 #
 ### ...work in progress
