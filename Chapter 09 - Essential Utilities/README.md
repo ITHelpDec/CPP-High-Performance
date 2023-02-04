@@ -219,11 +219,17 @@ std::get<T>();
 
 #
 ### Real-world applications
-* Sorting structs
+* __Sorting structs (projection)__
 
 The author's `if ... else ...` predicates are a touch verbose; they can defintely be refactored into something more legible (as I've done in the examples below), but this is a good exercise for refactoring – you can also start to see the benefits of the `std::ranges` library coming through in this example.
 
 [the_quest_for_terseness.cpp](the_quest_for_terseness.cpp)
+
+* __Collating members in a tuple (reflection)__
+
+We can collate members into a tuple for easier iteration using `std::tie` – as much as I diss `auto`, this is a situation where it really comes in handy.
+
+[reflection.cpp](reflection.cpp)
 
 #
 ### ...work in progress
