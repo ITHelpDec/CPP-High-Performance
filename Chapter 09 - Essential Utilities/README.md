@@ -203,9 +203,11 @@ std::apply( [] (auto &&e) { std::cout << e << '\n'; } , v);
 
 #
 ### Heterogen(e)nous containers holding `std::variant`
-Template functions provide the worst warnings...two template functions to return if a certain item is found in a variant or a vector of variants
+Two template functions to return if a certain item is found in a variant or a vector of variants.
 
 [in_variant_vec.cpp](in_variant_vec.cpp)
+
+N.B. always remember to include a `return` if it's needed - template functions have terrible error messages, and it'll save you a lot of heartache.
 
 #
 ### ...work in progress
