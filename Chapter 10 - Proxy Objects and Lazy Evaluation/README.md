@@ -38,9 +38,11 @@ I'm not quite sure about the example provided in the book - when I tested for pe
 
 [bm_strcmp.cpp](bm_strcmp.cpp)
 
-Saying that, with optimisations turned on, the same code runs [extremely quickly](https://godbolt.org/z/Ms767n1T3) - perhaps this is what the author means?
+~~Saying that, with optimisations turned on, the same code runs [extremely quickly](https://godbolt.org/z/Ms767n1T3) - perhaps this is what the author means?~~
 
-I'll have to do more research.
+~~I'll have to do more research.~~
+
+__EDIT:__ Turns out the compiler was optimising out the loop – unfortunately, using `DoNotOptimize` didn't make too much of a difference on my machine (the first function still came out trumps), whereas the second function always seemed to perform better on the likes of GodBolt even with the new code.
 
 #
 ### ...work in progress
