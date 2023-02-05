@@ -85,9 +85,9 @@ Good idea to use `length_squared()` instead of `length()`, but code like this wi
 ```cpp
 auto min_length(const auto& r) -> float {
 ```
-Just because you can use `auto` everywhere doesn't mean you should...
+Just because you _can_ use `auto` everywhere doesn't mean you should...
 
-I glossed over the rest of this example after seeing the algorithm - quick-bench link [here](https://quick-bench.com/q/wKFufLmR77lm_c4M-YRxEsYW9DY).
+I glossed over the rest of this example after seeing the algorithm - quick-bench link [here](https://quick-bench.com/q/wKFufLmR77lm_c4M-YRxEsYW9DY) as to why.
 
 [bm_Vec2D.cpp](bm_Vec2D.cpp)
 
