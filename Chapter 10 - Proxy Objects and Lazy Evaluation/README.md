@@ -38,7 +38,9 @@ I'm not quite sure about the example provided in the book - when I tested for pe
 
 [bm_strcmp.cpp](bm_strcmp.cpp)
 
+Saying that, with optimisations turned on, the same code runs [extremely quickly](https://godbolt.org/z/Ms767n1T3) - perhaps this is what the author means?
 
+I'll have to do more research.
 
 #
 ### ...work in progress
