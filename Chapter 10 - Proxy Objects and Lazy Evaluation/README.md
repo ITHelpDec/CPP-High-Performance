@@ -92,4 +92,14 @@ I glossed over the rest of this example after seeing the algorithm - quick-bench
 [bm_Vec2D.cpp](bm_Vec2D.cpp)
 
 #
-### ...work in progress
+### Pipe operator
+A few pages on how to mimic the pipe operator in Linux using proxy objects so it can fit in with the `std::ranges` library - if I need it in the future I'll come back to it.
+```cpp
+template <typename Range, typename T>
+auto operator|(const Range& r, const ContainsProxy<T>& proxy) { /*...*/ }
+```
+#
+### Summary
+Bit of a disapponting end to the chapter
+
+One interesting example of how to rethink operators, such that they provide improved efficiency without interfering with front-end syntax, but that was about it – expected more from this chapter.
