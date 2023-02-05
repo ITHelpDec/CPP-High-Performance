@@ -62,4 +62,22 @@ We must be sure, however, to specifically declare the return type as `String`, a
 ❌: auto c = String("man") + String("bearpig");
 ```
 #
+### Benchmark
+I had a look at the [benchmark in the book](https://github.com/PacktPublishing/Cpp-High-Performance-Second-Edition/blob/master/Chapter10/benchmarks/string_concat_proxy_bm.cpp), but I didn't get anywhere near 40x the speed increase. It was closer to a 2x speed difference, but this is nothing to turn your nose up at – 2x is still a considerable performance gain.
+```
+Run on (12 X 24.1214 MHz CPU s)
+CPU Caches:
+  L1 Data 64 KiB
+  L1 Instruction 128 KiB
+  L2 Unified 4096 KiB (x12)
+Load Average: 1.47, 1.44, 1.34
+----------------------------------------------------------------------------
+Benchmark                                  Time             CPU   Iterations
+----------------------------------------------------------------------------
+bm_string_compare<std::string>/50      0.868 ms        0.868 ms          806
+bm_string_compare<std::string>/10      0.732 ms        0.732 ms          951
+bm_string_compare<String>/50           0.488 ms        0.488 ms         1430
+bm_string_compare<String>/10           0.537 ms        0.537 ms         1316
+```
+#
 ### ...work in progress
