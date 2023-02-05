@@ -63,7 +63,7 @@ We must be sure, however, to specifically declare the return type as `String`, a
 ```
 #
 ### Benchmark
-I had a look at the [benchmark in the book](https://github.com/PacktPublishing/Cpp-High-Performance-Second-Edition/blob/master/Chapter10/benchmarks/string_concat_proxy_bm.cpp), but I didn't get anywhere near 40x the speed increase. It was closer to a 2x speed difference, but this is nothing to turn your nose up at – 2x is still a considerable performance gain.
+I had a look at the [benchmark in the book](https://github.com/PacktPublishing/Cpp-High-Performance-Second-Edition/blob/master/Chapter10/benchmarks/string_concat_proxy_bm.cpp), but I didn't get anywhere near 40x the speed increase with optimisations off. It was closer to a 2x speed difference, but this is nothing to turn your nose up at – 2x is still a considerable performance gain.
 ```
 Run on (12 X 24.1214 MHz CPU s)
 CPU Caches:
@@ -79,5 +79,17 @@ bm_string_compare<std::string>/10      0.732 ms        0.732 ms          951
 bm_string_compare<String>/50           0.488 ms        0.488 ms         1430
 bm_string_compare<String>/10           0.537 ms        0.537 ms         1316
 ```
+#
+### Avoiding `std::sqrt`
+Good idea to use `length_squared()` instead of `length()`, but code like this with no explanation of what `r` is doesn't feel like a good example of self-documentation - only after reading the whole function does it begin to make sense.
+```cpp
+auto min_length(const auto& r) -> float {
+```
+Just because you can use `auto` everywhere doesn't mean you should...
+
+I glossed over the rest of this example after seeing the algorithm - quick-bench link [here](https://quick-bench.com/q/wKFufLmR77lm_c4M-YRxEsYW9DY).
+
+[bm_Vec2D.cpp](bm_Vec2D.cpp)
+
 #
 ### ...work in progress
