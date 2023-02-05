@@ -45,4 +45,10 @@ I'm not quite sure about the example provided in the book - when I tested for pe
 __EDIT:__ Turns out the compiler was optimising out the loop – unfortunately, using `DoNotOptimize` didn't make too much of a difference on my machine (the first function still came out trumps), whereas the second function always seemed to perform better on the likes of GodBolt even with the new code.
 
 #
+### Implementing the proxy
+Below is an example from the book of how we can redefine operators to improve the efficiency of operations we want to perform __*without*__ veering away from the original front-facing intentions i.e. `(a + b) == c` can still be written as `(a + b) == c` by the developer using the library to test if the concatenation of two strings is the same as another string using the same predictable syntax, but the underlying operations to produce that result can be optimised under the radar without affecting the end result - winner winner, chicken dinner.
+
+[concat_proxy.cpp](concat_proxy.cpp)
+
+#
 ### ...work in progress
