@@ -51,4 +51,15 @@ Below is an example from the book of how we can redefine operators to improve th
 [concat_proxy.cpp](concat_proxy.cpp)
 
 #
+### Assigning a concatenated proxy
+We can add overload `operator String()` within the `ConcatProxy` struct:
+```cpp
+operator String() const && { return String(a_ + b_); }
+```
+We must be sure, however, to specifically declare the return type as `String`, and not `auto`, or the programme will assign the result to `ConcatProxy`
+```cpp
+✅: String c = String("man") + String("bearpig");
+❌: auto c = String("man") + String("bearpig");
+```
+#
 ### ...work in progress
