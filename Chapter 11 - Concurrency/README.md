@@ -75,5 +75,21 @@ Our mutex version, however, returns `x` as 0 every time, just as we saw and expe
 
 A mutually-exclusive lock (mutex) guarantees that multiple threads never execute a critical section at the same time.
 
+Immutable data structures can be accessed concurrently without the risk of incurring a data race.
+
+A common pattern is also to create a new data structure concurrently, then allow it to replace the original data structure instead of modifying the original structure concurrently. That swap is a critical section, so we would use an atomic operation or a mutex to protect it.
+
+#
+### Mutexes
+A mutex guarantees that only one thread at a time is inside a critical section.
+
+It is worth noting that if most of the work cannot be done without serialisation, then it's not worth writing concurrently.
+
+The state where one thread is blocked by another is called __*contention*__ - this is something we strive to minimise, as adding more cores will not improve performance where contention is high.
+
+#
+### Deadlocks
+#
+###
 #
 ### ...work in progress
