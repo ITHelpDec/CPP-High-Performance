@@ -92,6 +92,21 @@ The state where one thread is blocked by another is called __*contention*__ - th
 [Hire me and I'll explain deadlocks.](https://vm.tiktok.com/ZMY2WhuD2/)
 
 #
-###
+### Threads
+We can print the main thread's identifier as such:
+```cpp
+std::cout << std::this_thread::get_id() << '\n'; // 0x1f38b8100
+```
+We can use sleep functions to help debug data races
+```cpp
+std::this_thread::sleep_for(std::chrono::seconds(3));
+```
+
+#
+### Joining threads
+Divide and conquer...just remember to reconvene or you're crash your programme.
+
+[join.cpp](join.cpp)
+
 #
 ### ...work in progress
