@@ -69,4 +69,11 @@ x: 18446744073679433170
 Our mutex version, however, returns `x` as 0 every time, just as we saw and expected with the initial version that follows serial execution.
 
 #
+### Avoiding data races
+* Atomic types (e.g. `std::atomic<int>`)
+* Mutexes (e.g. `std::mutex`)
+
+A mutually-exclusive lock (mutex) guarantees that multiple threads never execute a critical section at the same time.
+
+#
 ### ...work in progress
