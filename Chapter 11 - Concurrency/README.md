@@ -53,9 +53,20 @@ Data races = no bueno.
 
 Bar undefined behaviour, they can lead to corrupt values as a result of __*tearing*__ (torn reads / torn writes)
 
-No code was provided of a data race in the book, so I have provided one below as well as its correction.
+No code was provided of a data race to accompany this subheading, so I've put together a (probably incorrect) programme demonstrating serial execution, a threaded data race, and a threaded version that uses mutexes (again, probably incorrectly).
 
-[serial_seesaw.cpp](serial_seesaw.cpp) | [data_race.cpp](data_race.cpp) | [no_data_race.cpp](no_data_race.cpp)
+[bm_threads.cpp](bm_threads.cpp)
+
+I've also attached a link to a benchmark on quick-bench [here](https://quick-bench.com/q/v54AIi8eNp7tkMVM-Jq13-Ejvrc) – even if we split our `increase()` and `decrease()` functions across two threads, performance starts to really improve beyond 100,000 iterations.
+
+Both threaded versions perform at around the same speed, but the one without mutexes exhibits undefined behaviour returning muddled values for `x`:
+```
+x: 9973
+x: 18446744073709244579
+x: 18446744073707368975
+x: 18446744073679433170
+```
+Our mutex version, however, returns `x` as 0 every time, just as we saw and expected with the initial version that follows serial execution.
 
 #
 ### ...work in progress
