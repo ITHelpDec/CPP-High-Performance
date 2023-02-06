@@ -55,7 +55,7 @@ Bar undefined behaviour, they can lead to corrupt values as a result of __*teari
 
 No code was provided of a data race in the book, so I have provided one below as well as its correction.
 
-[data_race.cpp](data_race.cpp) | [no_data_race.cpp](no_data_race.cpp)
+[serial_seesaw.cpp](serial_seesaw.cpp) | [data_race.cpp](data_race.cpp) | [no_data_race.cpp](no_data_race.cpp)
 
 #
 ### ...work in progress
