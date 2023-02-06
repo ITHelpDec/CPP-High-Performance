@@ -12,6 +12,7 @@ int main()
     std::thread t1(print);
     t1.join();
     
+    // std::cout is thread safe
     std::cout << "ThreadID: " << std::this_thread::get_id() << '\n';
     
     return 0;
