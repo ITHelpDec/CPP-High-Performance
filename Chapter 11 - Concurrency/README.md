@@ -89,7 +89,7 @@ The state where one thread is blocked by another is called __*contention*__ - th
 
 #
 ### Deadlocks
-[Hire me and I'll explain deadlocks.]()
+[Hire me and I'll explain deadlocks.](https://vm.tiktok.com/ZMY2WhuD2/)
 
 #
 ###
