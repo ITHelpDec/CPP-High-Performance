@@ -36,4 +36,26 @@ This is one more reason to use the stack as much as possible"_ – pg. 329
 This last quotation is one of the most salient points – where reasonable, __use the stack__.
 
 #
+### Thread Local Storage (TLS)
+Thread local storage can be used to _"store variables that are global in the context of a thread but which are not shared between threads."_
+
+Everything else is shared by default i.e. dynamically-allocated memory on the heap, global variables, static local variables.
+
+> _"Whenever you have shared data that is mutated by some thread, you need to ensure that no other thread is accessing that data at the same time or you will have a data race"_ – pg. 330
+
+#
+### Data races
+> _"A data race happens when two threads are accessing the same memory at the same time and at least one of the threads is mutating the data."_ – pg. 331
+
+> _"If your program has a data race, it means that your program has undefined behavior."_ – pg. 331
+
+Data races = no bueno.
+
+Bar undefined behaviour, they can lead to corrupt values as a result of __*tearing*__ (torn reads / torn writes)
+
+No code was provided of a data race in the book, so I have provided one below as well as its correction.
+
+[data_race.cpp](data_race.cpp) | [no_data_race.cpp](no_data_race.cpp)
+
+#
 ### ...work in progress
