@@ -28,6 +28,7 @@ int main()
     } );
     
     for (int i = 0; i != n_dice; ++i) {
+        // all threads have unique "i" by value
         threads.emplace_back( [&, i] () {
             while (!done) {
                 dice[i] = random_int();
