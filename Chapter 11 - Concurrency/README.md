@@ -138,9 +138,13 @@ I've attached an example from the book of how that might look transferring money
 
 We then have __*consumers*__ and __*producers*__ (which makes me think of the [Actor](https://www.actor-framework.org) framework).
 
-Below is an example from the book using condition variables and unique locks.
+There is actually a really good example from the book of how two threads can communicate with each other using condition variables and unique locks – here the consumer rests idly, waiting for the producer to perform an action before it performs its own action.
 
-[condition_variables.cpp](condition_variables.cpp)
+My favourite part about this is how CPU usage is negligible while the consumer thread waits for its notification from the producer.
+
+This technique can be performed using a `while` loop, or by using a specific overload of `wait` by passing a lambda – both are below.
+
+[condition_variables.cpp](condition_variables.cpp) | [wait_overload.cpp](wait_overload.cpp)
 
 #
 ### ...work in progress
