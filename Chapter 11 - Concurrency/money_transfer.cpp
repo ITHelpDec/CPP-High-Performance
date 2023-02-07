@@ -8,6 +8,7 @@ struct Account {
 };
 
 void transferMoney(Account &from, Account &to, int amount) {
+    // std::unique_lock allows us to defer the locking of the mutex
     std::unique_lock<std::mutex> lock1 = { from.m_, std::defer_lock };
     std::unique_lock<std::mutex> lock2 = {   to.m_, std::defer_lock };
     
