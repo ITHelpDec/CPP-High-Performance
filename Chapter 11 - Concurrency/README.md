@@ -161,4 +161,10 @@ The nice thing about this example is that we didn't need to share global data or
 > _"...when the value is needed by some client, it calls get() to get hold of the actual value. If it is not computed at that point in time, the call to get() will block until it is finished"_ – pg. 349
 
 #
+### Tasks
+We can benefit from higher-level abstraction as a codebase grows by taking advantage of `std::packaged_task`, although I notice that if the `std::future` is not called before the `std::thread`, we encounter a runtime error (this was not the case with `std::promise` – will have to see how this pans out over time when I start applying it to larger sections of code.
+
+[task.cpp](task.cpp)
+
+#
 ### ...work in progress
