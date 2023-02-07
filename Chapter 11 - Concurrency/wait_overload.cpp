@@ -15,7 +15,6 @@ void print_ints() {
         {
             std::unique_lock<std::mutex> lock(mtx);
             
-            // while (iq.empty()) { cv.wait(lock); }
             cv.wait(lock, [] () { return !iq.empty(); } );
             
             i = iq.front();
