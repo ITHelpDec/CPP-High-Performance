@@ -142,7 +142,9 @@ There is actually a really good example from the book of how two threads can com
 
 My favourite part about this is how CPU usage is negligible while the consumer thread waits for its notification from the producer.
 
-This technique can be performed using a `while` loop, or by using a specific overload of `wait` by passing a lambda – both are below.
+This technique can be performed using a `while` loop, or by using a specific overload of `wait` that returns the `while` condition in a lambda – both are below.
+
+https://github.com/ITHelpDec/CPP-High-Performance/blob/f0e14bb5310b403577c6f0870c2d765154088ab8/Chapter%2011%20-%20Concurrency/wait_overload.cpp#L18-L19
 
 [condition_variables.cpp](condition_variables.cpp) | [wait_overload.cpp](wait_overload.cpp)
 
