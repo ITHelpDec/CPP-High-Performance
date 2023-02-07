@@ -133,4 +133,14 @@ I've attached an example from the book of how that might look transferring money
 [money_transfer.cpp](money_transfer.cpp)
 
 #
+### Condition variables
+> _"A condition variable makes it possible for threads to wait until some specific condition has been met"_ – pg. 346
+
+We then have __*consumers*__ and __*producers*__ (which makes me think of the [Actor](https://www.actor-framework.org) framework).
+
+Below is an example from the book using condition variables and unique locks.
+
+[condition_variables.cpp](condition_variables.cpp)
+
+#
 ### ...work in progress
