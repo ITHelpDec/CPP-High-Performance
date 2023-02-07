@@ -149,4 +149,16 @@ https://github.com/ITHelpDec/CPP-High-Performance/blob/f0e14bb5310b403577c6f0870
 [condition_variables.cpp](condition_variables.cpp) | [wait_overload.cpp](wait_overload.cpp)
 
 #
+### Futures and promises
+Futures and promises allow us to return data and handle errors concurrently.
+- The `future` is the receiving end of the value, and
+- The `promise` is the returning end of the value
+
+[promises.cpp](promises.cpp)
+
+The nice thing about this example is that we didn't need to share global data or call explicit locks - very handy.
+
+> _"...when the value is needed by some client, it calls get() to get hold of the actual value. If it is not computed at that point in time, the call to get() will block until it is finished"_ – pg. 349
+
+#
 ### ...work in progress
