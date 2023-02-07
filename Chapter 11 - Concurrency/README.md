@@ -177,9 +177,14 @@ With `std::async` we can move from thread-based programming to task-based progra
 #
 ### C++20 primitives
 * __*Latches*__
+  * Basically the "ready, set, go!" of multithreading
   * Latches create a synchronisation point where all threads must arrive before cracking on with the rest of their duties.
-  * [latch_example.cpp](latch_example.cpp) (I honestly think the author is allergic to whitespace)
+  * [latch_example.cpp](latch_example.cpp) – (rejigged - I think the author is allergic to whitespace)
 * __*Barriers*__
+  * If we need multiple synchronisation points then we can opt for a `std::barrier`
+  * Again, the equivalent of "ready, set, go!", followed by jumping on a motorbike to the next checkpoint and waiting for all the contestants to congregate before having a little award ceremony and starting the next leg
+  * > _"Barriers are useful in parallel programming algorithms that are based on the fork-join model"_ – pg. 355
+  * [barriers.cpp](barriers.cpp) – (again, rejigged - I don't understand the fear of whitespace / legible code)
 * __*Semaphores*__
 
 #
