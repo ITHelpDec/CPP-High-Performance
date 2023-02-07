@@ -1,7 +1,8 @@
 #include <iostream>
 #include <thread>
+#include <mutex>
 
-int n = 100000;
+int n = 10000;
 
 void increase(std::size_t &x) {
     for (int i = 0; i != n; ++i) { ++x; }
@@ -12,12 +13,14 @@ void decrease(std::size_t &x) {
 }
 
 void increase_multi(std::size_t &x, std::mutex &m) {
-    std::lock_guard<std::mutex> guard(m);
+    // std::lock_guard<std::mutex> guard(m);
+    std::scoped_lock<std::mutex> guard(m);
     for (int i = 0; i != n; ++i) { ++x; }
 }
 
 void decrease_multi(std::size_t &x, std::mutex &m) {
-    std::lock_guard<std::mutex> guard(m);
+    // std::lock_guard<std::mutex> guard(m);
+    std::scoped_lock<std::mutex> guard(m);
     for (int i = 0; i != n; ++i) { --x; }
 }
 
@@ -82,3 +85,5 @@ static void bm_no_data_race(benchmark::State &state) {
         benchmark::DoNotOptimize(x);
     } std::cout << "x: " << x << '\n';
 } BENCHMARK(bm_no_data_race);
+
+BENCHMARK_MAIN();
