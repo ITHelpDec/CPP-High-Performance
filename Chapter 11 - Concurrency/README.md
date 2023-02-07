@@ -109,4 +109,16 @@ Divide and conquer...just remember to reconvene or you're crash your programme.
 [join.cpp](join.cpp)
 
 #
+### Thread count
+We can get the thread count of a machine by making the following call:
+```cpp
+std::cout << "Thread count: " << std::thread::hardware_concurrency() << '\n'; // 12
+```
+#
+### `std::jthread`
+C++20 introduced a joinable thread to remove the need to supply a token manually - again though, not supported across the board (it doesn't even run properly [on Godbolt...](https://godbolt.org/z/zaY9M4nhK))
+
+[jthread.cpp](jthread.cpp)
+
+#
 ### ...work in progress
