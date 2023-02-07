@@ -175,4 +175,12 @@ With `std::async` we can move from thread-based programming to task-based progra
 [async.cpp](async.cpp)
 
 #
+### C++20 primitives
+* __*Latches*__
+  * Latches create a synchronisation point where all threads must arrive before cracking on with the rest of their duties.
+  * [latch_example.cpp](latch_example.cpp)
+* __*Barriers*__
+* __*Semaphores*__
+
+#
 ### ...work in progress
