@@ -121,4 +121,8 @@ C++20 introduced a joinable thread to remove the need to supply a token manually
 [jthread.cpp](jthread.cpp)
 
 #
+### Protecting critical sections
+I've amended [bm_threads.cpp](bm_threads.cpp) to use `std::scoped_lock` from the example instead of `std::guard_lock`.
+
+#
 ### ...work in progress
