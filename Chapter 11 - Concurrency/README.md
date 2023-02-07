@@ -167,4 +167,12 @@ We can benefit from higher-level abstraction as a codebase grows by taking advan
 [task.cpp](task.cpp)
 
 #
+### `std::async`
+Threads are not free – the number of threads in our programme can affect performance.
+
+With `std::async` we can move from thread-based programming to task-based programming (why does this sound like another Javascript-ism?).
+
+[async.cpp](async.cpp)
+
+#
 ### ...work in progress
