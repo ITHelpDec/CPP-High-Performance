@@ -125,4 +125,12 @@ C++20 introduced a joinable thread to remove the need to supply a token manually
 I've amended [bm_threads.cpp](bm_threads.cpp) to use `std::scoped_lock` from the example instead of `std::guard_lock`.
 
 #
+### Avoiding deadlocks
+Sometimes it's necessary to acquire another lock while already holding onto a previously acquired lock - we can do this using `std::lock()`.
+
+I've attached an example from the book of how that might look transferring money concurrently from one account to another.
+
+[money_transfer.cpp](money_transfer.cpp)
+
+#
 ### ...work in progress
