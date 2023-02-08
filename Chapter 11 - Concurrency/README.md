@@ -190,7 +190,8 @@ With `std::async` we can move from thread-based programming to task-based progra
 * __*Semaphores*__
   * Think of _semáforo_ in Spanish, or _семафор_in Russian; from _σήμα_ ("sign") and _φορος_ ("bearer") in Greek, this word is can be seen used for "traffic lights", and that's exactly what semaphores do - they provide signals.
   * [counting_semaphore.cpp](counting_semaphore.cpp) - in this example, the semaphore can be default-initialised inline by using `{ 4 }` or in the constructor.
-  * [bounded_buffer.cpp](bounded_buffer.cpp)
+  * [bounded_buffer_1.cpp](bounded_buffer_1.cpp) - first step to creating a push/pop buffer
+  * [bounded_buffer_2.cpp](bounded_buffer_2.cpp) – second step including semaphores
 
 #
 ### ...work in progress
