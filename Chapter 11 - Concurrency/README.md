@@ -180,12 +180,17 @@ With `std::async` we can move from thread-based programming to task-based progra
   * Basically the "ready, set, go!" of multithreading
   * Latches create a synchronisation point where all threads must arrive before cracking on with the rest of their duties.
   * [latch_example.cpp](latch_example.cpp) – (rejigged - I think the author is allergic to whitespace)
+
 * __*Barriers*__
   * If we need multiple synchronisation points then we can opt for a `std::barrier`
   * Again, the equivalent of "ready, set, go!", followed by jumping on a motorbike to the next checkpoint and waiting for all the contestants to congregate before having a little award ceremony and starting the next leg
   * > _"Barriers are useful in parallel programming algorithms that are based on the fork-join model"_ – pg. 355
   * [barriers.cpp](barriers.cpp) – (again, rejigged - I don't understand the fear of whitespace / legible code)
+
 * __*Semaphores*__
+  * Think of _semáforo_ in Spanish, or _семафор_in Russian; from _σήμα_ ("sign") and _φορος_ ("bearer") in Greek, this word is can be seen used for "traffic lights", and that's exactly what semaphores do - they provide signals.
+  * [counting_semaphore.cpp](counting_semaphore.cpp) - in this example, the semaphore can be default-initialised inline by using `{ 4 }` or in the constructor.
+  * [boundedbuffer.cpp](bounded_buffer.cpp)
 
 #
 ### ...work in progress
