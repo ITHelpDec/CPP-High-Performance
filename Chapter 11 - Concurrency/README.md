@@ -265,4 +265,7 @@ Have included the example from the book with a few tweaks in regards to pseudo-r
 [coin_game.cpp](coin_game.cpp) | [atomic_ref.cpp](atomic_ref.cpp) | [not_so_atomic_ref.cpp](not_so_atomic_ref.cpp)
 
 #
+### C++ Memory Model
+The C++ memory model guarantees sequential consistency.
+#
 ### ...work in progress
