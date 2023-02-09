@@ -262,7 +262,7 @@ Speaking of C++20 features that aren't fully supported - introducing `std::atomi
 
 Have included the example from the book with a few tweaks in regards to pseudo-random numbers, and then the same example written another way.
 
-[atomic_ref.cpp](atomic_ref.cpp) | [not_so_atomic_ref.cpp](not_so_atomic_ref.cpp)
+[coin_game.cpp](coin_game.cpp) | [atomic_ref.cpp](atomic_ref.cpp) | [not_so_atomic_ref.cpp](not_so_atomic_ref.cpp)
 
 #
 ### ...work in progress
