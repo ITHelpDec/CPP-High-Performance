@@ -194,4 +194,33 @@ With `std::async` we can move from thread-based programming to task-based progra
   * [bounded_buffer_2.cpp](bounded_buffer_2.cpp) – second step including semaphores, although I'm not sure I follow the logic of a pop() function that doesn't remove the last element and move the read position back a step...?
 
 #
+### Atomic support in C++
+An atomic variable can be safely used and mutated hy multiple threads without introducing daya races.
+
+With atomics, this...
+```cpp
+int counter = 0;
+std::mutex mtx;
+
+void increment(int n) {
+    for (int i = 0; i != n; ++i) {
+        std::scoped_lock lock(mtx);
+        ++counter;
+    }
+}
+```
+...becomes this...
+```cpp
+std::atomic<int> counter;
+
+void increment(int n) {
+    for (int i = 0; i != n; ++i) {
+        ++counter; // or counter.fetch_add(1);
+    }
+}
+```
+Atomics will only work for objects that are copyable, so objects that contain virtual functions or pointers to dynamic memory are off the cards.
+
+
+#
 ### ...work in progress
