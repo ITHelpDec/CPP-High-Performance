@@ -36,6 +36,9 @@ public:
     }
     
     std::size_t size() { return buffer_.size(); }
+    
+    T& operator[](std::size_t i) { return buffer_[i]; }
+    
 private:
     std::array<T, N> buffer_;
     std::size_t read_pos_ = 0, write_pos_ = 0;
@@ -77,6 +80,9 @@ int main()
         t2.join();
     }
     
+    std::cout << "buffer: ";
+    for (int i = 0; i != 8; ++i) { std::cout << bb[i] << ' '; } std::cout << '\n';
+    
     return 0;
 }
 
@@ -100,4 +106,5 @@ int main()
 // read_pos:  7, N: 8
 // write_pos: 0, N: 8
 // read_pos:  0, N: 8
+// buffer: 0 1 2 3 4 5 6 7
 // Program ended with exit code: 0
