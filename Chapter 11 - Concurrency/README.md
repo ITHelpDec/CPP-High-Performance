@@ -244,7 +244,17 @@ fleg.clear(); // they took our flegs
 ```
 Fortunately, as of C++20 we can take advantage of `wait()` and `notify_one()` / `notify_all()` to help reduce spinlock.
 #
-### Using `std::shared_ptr<T> in a multithreaded environment
+### Using `std::shared_ptr<T>` in a multithreaded environment
+This...
+```cpp
+std::shared_ptr<int> sp;
+```
+...becomes...
+```cpp
+std::atomic<std::shared_ptr> asp;
+```
+...although, yet again, this is not supported by all compilers...
 
+[atomic_shared_ptr.cpp](atomic_shared_ptr.cpp)
 #
 ### ...work in progress
