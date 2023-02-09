@@ -257,4 +257,12 @@ std::atomic<std::shared_ptr<int>> asp;
 
 [atomic_shared_ptr.cpp](atomic_shared_ptr.cpp)
 #
+### Atomic refs
+Speaking of C++20 features that aren't fully supported - introducing `std::atomic_ref` 😃
+
+Have included the example from the book with a few tweaks in regards to pseudo-random numbers, and then the same example written another way.
+
+[atomic_ref.cpp](atomic_ref.cpp) | [not_so_atomic_ref.cpp](not_so_atomic_ref.cpp)
+
+#
 ### ...work in progress
