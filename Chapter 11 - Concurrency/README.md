@@ -251,7 +251,7 @@ std::shared_ptr<int> sp;
 ```
 ...becomes...
 ```cpp
-std::atomic<std::shared_ptr> asp;
+std::atomic<std::shared_ptr<int>> asp;
 ```
 ...although, yet again, this is not supported by all compilers...
 
