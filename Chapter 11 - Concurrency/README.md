@@ -220,7 +220,21 @@ void increment(int n) {
 }
 ```
 Atomics will only work for objects that are copyable, so objects that contain virtual functions or pointers to dynamic memory are off the cards.
+#
+### Lock-free property
+Atomics reduce the performance overhead found in using mutexes, so work very well for low-latency environments.
 
+If an atomic does not use a lock, it is said to be __lock-free__ - we can check this at runtime with...
+```cpp
+std::atomic<int> x = 1;
+assert(x.is_lock_free()); // runtime assert
+```
+We can also check at compile time as of C++17:
+```cpp
+static_assert(std::atomic<int>::is_always_lock_free);
+```
+#
+### Atomic flags
 
 #
 ### ...work in progress
