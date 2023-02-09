@@ -235,6 +235,16 @@ static_assert(std::atomic<int>::is_always_lock_free);
 ```
 #
 ### Atomic flags
+We can use atomic flags to protect critical sections of code - they are not very resource-friendly when used in combination with while loops to check state:
+```cpp
+std::atomic_flag fleg;
+fleg.test_and_set();
+fleg.test();
+fleg.clear(); // they took our flegs
+```
+Fortunately, as of C++20 we can take advantage of `wait()` and `notify_one()` / `notify_all()` to help reduce spinlock.
+#
+### Using `std::shared_ptr<T> in a multithreaded environment
 
 #
 ### ...work in progress
