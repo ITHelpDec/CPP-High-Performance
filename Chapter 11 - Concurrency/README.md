@@ -267,5 +267,16 @@ Have included the example from the book with a few tweaks in regards to pseudo-r
 #
 ### C++ Memory Model
 The C++ memory model guarantees sequential consistency.
+
+> _"Sequential consistency guarantees that the result of the execution is the same as if the operations were executed in the order specified by the original program."_ – pg. 376
+
+Bit of a weird subsection going into the detail of the model then saying "don't change it" – similar kind of vibe to the Memory Management chapter.
+
+#
+### Lock-free programming
+Just a few examples from the author - I'll learn more about these concepts when I start reading C++ Concurrency in Action.
+
+[lock_free_queue.cpp](lock_free_queue.cpp)
+
 #
 ### ...work in progress
