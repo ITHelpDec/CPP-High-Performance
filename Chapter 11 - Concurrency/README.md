@@ -299,6 +299,18 @@ Same goes for most programmes – make sure it works before trying to improve pe
   * ```cpp
     t1.native_handle();
     ```
+  * Avoid "__*priority inversion*__" (when a thread with high priority is held back by a low-priority thread)
+
+* __*Thread affinity*__
+  * Give the scheduler hints about which threads could benefit from sharing the same CPU cache.
+  * There is no portable way to set affinity
+
+* __*False sharing*__
+  * When two or more threads access data (that isn't logically shared between threads), but happen to be located on the same cache line.
+  * Can happen when using global data or dynamically-allocated data.
+  * > _"The solution is to pad each element in the array so that two adjacent elements cannot reside on the same cache line."_ – pg. 383
+  * We can do this now in C++17 by using `std::destructive_interference_size` in combination with `alignas`:
+  * [destructive.cpp](destructive.cpp)
 
 #
 ### Summary
