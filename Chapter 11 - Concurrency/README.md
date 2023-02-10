@@ -274,9 +274,18 @@ Bit of a weird subsection going into the detail of the model then saying "don't 
 
 #
 ### Lock-free programming
-Just a few examples from the author - I'll learn more about these concepts when I start reading C++ Concurrency in Action.
+Last from the author - really not fussed on it, especially considering they approach `pop()` like a Java developer, yet the function doesn't remove variables; if they just want to read the leading variable, call it `front()` or `top()` like in the STL.
 
 [lock_free_queue.cpp](lock_free_queue.cpp)
 
+The Google Test in the author's source code uses a busy spin as well (which was discouraged not only a few pages ago) - it would have been nice to see an exmaple using `std::atomic_flag` or some kind of `wait()` + `notify_one()` / `notify_all()`.
+
 #
-### ...work in progress
+### Summary
+It was nice to finally learn a bit more about multithreading in C++.
+
+A lot of features were covered, and some decent examples were given, but there's a bit of feature overload and vagueness on the more intricate parts, with not too many demonstrations of the classes actually in action / how to implement them properly.
+
+Another instance of where more time could be spent on the "why" and the "how" - with so many features, why use one over the other? Could instances be written with all of the different techniques producing the same or similar effects, maybe comparing pro's and con's of each, or which one would be more suitable for this real-life task?
+
+Show an input, show an output - help the reader with visualising how to understand the task at hand.
