@@ -281,6 +281,26 @@ Last from the author - really not fussed on it, especially considering they appr
 The Google Test in the author's source code uses a busy spin as well (which was discouraged not only a few pages ago) - it would have been nice to see an exmaple using `std::atomic_flag` or some kind of `wait()` + `notify_one()` / `notify_all()`.
 
 #
+### Performance guidelines
+Same goes for most programmes – make sure it works before trying to improve performance.
+
+* __Avoid contention__
+  * Sharing memory across multiple threads caused contention and locks remove CPU optimisations – minimise time spent in critical sections of code to avoid this.
+
+* __Avoid blocking operations__
+  * Favour writing threaded processes to preserve the responsiveness of the UI - anything longer than 16ms (60Hz) will affect the user experience (e.g. background I/O or network API's).
+
+* __Number of threads / CPU cores__
+  * > _"For CPU- bound tasks, there is usually no point in using more threads than there are cores on the machine."_ – pg. 381
+  * > _"A good way of controlling the number of threads is to use a thread pool that can be sized to match the current hardware."_ – pg. 381 (this seems very interesting!)
+
+* __Thread priorities__
+  * There is currently no native way to prioritise threads in C++, but we can call the following to get a handle to the underlying operating system thread and use native API's to set priorities.
+  * ```cpp
+    t1.native_handle();
+    ```
+
+#
 ### Summary
 It was nice to finally learn a bit more about multithreading in C++.
 
