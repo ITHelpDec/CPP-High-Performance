@@ -84,7 +84,7 @@ They offer very little memory overhead, efficient context switching, high flexib
 * `std::coroutine_traits` - defines promise type
 
 #
-### Restructions
+### Restrictions
 * Can't use variadic arguments
 * Can't use `auto` (thank goodness..)
 * Can't be `constexpr` (maybe less good)
@@ -95,10 +95,14 @@ We cannot access the coroutine state by any other means than through the handle 
 Values or errors from the coroutine passed to the promise – it acts like a conduit between the coroutine and the handler, but (oddly) neither have direct access.
 
 #
-### Our first coroutine example
+## Our first coroutine example
 A bit convoluted in how the code was presented in the book, but a good example of what boilerplate is needed to make the coroutine work, as well as what a coroutine actually is!
 
-Basically, it's like having another `main()` function – do stuff, hit pause, start from where you left off, only applied to multiple functions instead of just `main()`.
+Basically, it's like having more than one `main()` function.
+
+In real-world terms, it's like "put the kettle on, grind your coffee beans, put your grinds in the french press, go back to the kettle for the boiled water, then go back to the french press to start pouring your water" - the coroutines allow us to keep track of both progress and state  i.e. the grinds don't turn back into beans when we pick up the kettle and wonder why the water unboiled the moment we stopped looking at it 😅
+
+Powerful stuff.
 
 [coro_printVec.cpp](coro_printVec.cpp)
 
