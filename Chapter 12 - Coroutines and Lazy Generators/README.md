@@ -93,5 +93,14 @@ They offer very little memory overhead, efficient context switching, high flexib
 We cannot access the coroutine state by any other means than through the handle (the coroutine state also contains the __*promise*__).
 
 Values or errors from the coroutine passed to the promise – it acts like a conduit between the coroutine and the handler, but (oddly) neither have direct access.
+
+#
+### Our first coroutine example
+A bit convoluted in how the code was presented in the book, but a good example of what boilerplate is needed to make the coroutine work, as well as what a coroutine actually is!
+
+Basically, it's like having another `main()` function – do stuff, hit pause, start from where you left off, only applied to multiple functions instead of just `main()`.
+
+[coro_printVec.cpp](coro_printVec.cpp)
+
 #
 ### ...work in progress
