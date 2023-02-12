@@ -309,8 +309,8 @@ Same goes for most programmes – make sure it works before trying to improve pe
   * When two or more threads access data (that isn't logically shared between threads), but happen to be located on the same cache line.
   * Can happen when using global data or dynamically-allocated data.
   * > _"The solution is to pad each element in the array so that two adjacent elements cannot reside on the same cache line."_ – pg. 383
-  * We can do this now in C++17 by using `std::destructive_interference_size` in combination with `alignas`:
-  * [destructive.cpp](destructive.cpp)
+  * We ~~can~~ _could_ do this now in C++17 by using `std::destructive_interference_size` in combination with `alignas`, but, again (bit of a trend here), it is not universally-supported...I was able to get something to work with the following command on my 2013 Intel MacBook Pro (will need to test for M2):
+  * [false_sharing.cpp](false_sharing.cpp)
 
 #
 ### Summary
