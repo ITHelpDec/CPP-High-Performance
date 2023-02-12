@@ -17,7 +17,7 @@ A nice attempt at teaching pseudo-Assembly, although I wish they'd just used Ass
 ```diff
 - add     73, R1
 + addl    $73, %eax (AT&T)
-+ add     eax, 73   (Tntel)
++ add     eax, 73   (Intel)
 
 - mov     SP,  R2
 + movl    -8(%rbp), %eax            (AT&T)
@@ -60,6 +60,11 @@ Stackless coroutines do not allocate memory dynamically
 The memory footprint im summary:
 * __*Stackless*__ – Coroutine frame
 * __*Stackful*__ - Coroutine frame + call stack
+
+#
+### Context switching
+It's generally more expensive to switch between stackful coroutines than it is stackless.
+> _"...a stackful coroutine has a more expensive context switch operation since it has more information to save and restore during suspend and resume compared to a stackless coroutine. Resuming a stackless coroutine is comparable to a normal function call."_ – pg. 401
 
 #
 ### ...work in progress
