@@ -23,9 +23,9 @@ A nice attempt at teaching pseudo-Assembly, although I wish they'd just used Ass
 + movl    -8(%rbp), %eax            (AT&T)
 + mov     eax, dword ptr [rbp - 8]  (Intel)
 
-- mov    R2, [R1]
-+ movl   %eax, -8(%rbp)             (AT&T)
-+ mov    dword ptr [rbp - 8], eax   (Intel)
+- mov     R2, [R1]
++ movl    %eax, -8(%rbp)             (AT&T)
++ mov     dword ptr [rbp - 8], eax   (Intel)
 ```
 #
 ### ...work in progress
