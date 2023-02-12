@@ -67,4 +67,31 @@ It's generally more expensive to switch between stackful coroutines than it is s
 > _"...a stackful coroutine has a more expensive context switch operation since it has more information to save and restore during suspend and resume compared to a stackless coroutine. Resuming a stackless coroutine is comparable to a normal function call."_ – pg. 401
 
 #
+### Coroutines in C++
+Coroutines in C++ are stackless.
+
+They offer very little memory overhead, efficient context switching, high flexibility (more than 15 customisation points), and don't require C++ exceptions to handle errors (this makes them potentially very useful for the likes of embedded systems or real-time / low-latency environments).
+
+#
+### Keywords
+* `co_await` - suspend the current coroutine
+* `co_yield` - spit out a value and suspend the coroutine
+* `co_return` - complete the coroutine (can also return value)
+
+* `std::coroutine_handle` - template class that refers to the coroutine's state (allows for suspending and resuming)
+* `std::suspend_never` - trivial awaitable type that never suspens
+* `std::suspend_always` - trival awaitable type that always suspends
+* `std::coroutine_traits` - defines promise type
+
+#
+### Restructions
+* Can't use variadic arguments
+* Can't use `auto` (thank goodness..)
+* Can't be `constexpr` (maybe less good)
+* Constructors / destructors can't be coroutines (and neither can `main()`)
+
+We cannot access the coroutine state by any other means than through the handle (the coroutine state also contains the __*promise*__).
+
+Values or errors from the coroutine passed to the promise – it acts like a conduit between the coroutine and the handler, but (oddly) neither have direct access.
+#
 ### ...work in progress
