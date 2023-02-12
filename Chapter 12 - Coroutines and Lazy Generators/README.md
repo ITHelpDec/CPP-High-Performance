@@ -28,4 +28,38 @@ A nice attempt at teaching pseudo-Assembly, although I wish they'd just used Ass
 + mov     dword ptr [rbp - 8], eax   (Intel)
 ```
 #
+### Call frames
+When a function is being called, a __*call frame*__ for that function is created, containing the following:
+- parameters
+- local variables
+- a snapshot of the registers
+- a return address that links back to the place in memory where the call was invoked
+- an optional frame pointer
+
+A call frame stored on the stack is called a __*stack frame*__.
+#
+### Stackful vs Stackless
+> _"Stackful coroutines have a separate side stack (similar to a thread) that contains the coroutine frame and the nested call frames. This makes it possible to suspend from nested call frames:"_ – pg. 396
+
+> _"the coroutine itself needs to create the coroutine frame and copy the parameters and registers from the call frame to the coroutine frame when it is called:"_ – pg. 396
+
+> _"stackless coroutines use the stack of the currently running thread to handle nested function calls. The effect of this is that a stackless coroutine can never suspend from a nested call frame."_ – pg. 398
+
+#
+### Stackful Coroutines vs Threasds
+Each have their own stack - hwoever,...:
+* Switching threads is a kernel operation, and kernel operations are expensive (pg. 393)
+* Most OS's switch threads premptively, as opposed to cooperatively like in coroutines.
+
+#
+### Performance
+Stackful coroutines are dynamically-allocated, and can either be segmented or expanding (like how `std::vector` grows).
+
+Stackless coroutines do not allocate memory dynamically
+
+The memory footprint im summary:
+* __*Stackless*__ – Coroutine frame
+* __*Stackful*__ - Coroutine frame + call stack
+
+#
 ### ...work in progress
