@@ -120,7 +120,20 @@ In some cases, the separate heap allocation can be elided by inlining the corout
 
 We can create a class-level `operator new` to see if the heap elision was successful (and if it wasn't, then we can find out hownmuch memory is needed for the coroutine state).
 
-[co_new.cpp](co_new.cpp)
+```cpp
+struct Promise {
+    // ...
+    static void* operator new(std::size_t sz) {
+        std::cout << "Promise::operator new(" << sz << ")\n";
+        return ::operator new(sz);
+    }
+    
+    static void operator delete(void *mem) {
+        std::cout << "Promise::operator delete(mem)\n";
+        return ::operator delete(mem);
+    }
+};
+```
 
 #
 ### ...work in progress
