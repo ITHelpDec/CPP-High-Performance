@@ -171,4 +171,11 @@ Take advantage of `operator()` to form a lambda member coroutine, or `auto ...` 
 [co_member.cpp](co_member.cpp) | [co_lambda.cpp](co_lambda.cpp)
 
 #
+### Generators
+> _"A generator is a type of coroutine that yields values back to its caller"_ – pg. 419
+* `Generator` - the return object
+* `Promise` - coroutine controller
+* `Iterator` - interface between client and `Promise`
+
+#
 ### ...work in progress
