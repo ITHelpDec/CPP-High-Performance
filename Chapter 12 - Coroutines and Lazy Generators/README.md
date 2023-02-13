@@ -163,4 +163,12 @@ int main()
 }
 ```
 #
+### Member functions and lambdas
+We need to be especially careful of scope when it comes to including coroutines inside classes / structs - same goes for lambdas.
+
+Take advantage of `operator()` to form a lambda member coroutine, or `auto ...` + `...) -> T { ...` for a standalone lambda coroutine - just, again, be mindful of lifespan.
+
+[co_member.cpp](co_member.cpp) | [co_lambda.cpp](co_lambda.cpp)
+
+#
 ### ...work in progress
