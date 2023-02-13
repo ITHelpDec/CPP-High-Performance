@@ -107,4 +107,20 @@ Powerful stuff.
 [coro_printVec.cpp](coro_printVec.cpp)
 
 #
+### Passing our coroutine around
+We can use threads alongside our coroutines - this can help avoid potential heap allocations of the coroutine dtate on a specific thread.
+
+[co_thread.cpp](co_thread.cpp)
+
+#
+### Allocating the coroutine state
+In some cases, the separate heap allocation can be elided by inlining the coroutine state into the frame of the caller (this is, however, not guaranteed).
+
+> _"For the compiler to be able to elide the heap allocation, the complete lifetime of the coroutine state must be strictly nested within the lifetime of the caller. In addition, the compiler needs to figure out the total size of the coroutine so that parts of it can be inlined. Situations like virtual function calls, and calls to functions in other translation units or shared libraries, typically make this impossible. If the compiler is missing the information it needs, it will insert a heap allocation"_ – pg. 412
+
+We can create a class-level `operator new` to see if the heap elision was successful (and if it wasn't, then we can find out hownmuch memory is needed for the coroutine state).
+
+[co_new.cpp](co_new.cpp)
+
+#
 ### ...work in progress
