@@ -134,6 +134,33 @@ struct Promise {
     }
 };
 ```
+#
+### Avoiding dangling references
+Forget everything you knew about passing `const T &t` - this will result in undefined behaviour (even in lambdas).
 
+Pass by value (seems expensive).
+```cpp
+// coroutine
+Resumable coroutine(std::string s) {
+    std::cout << s;
+    co_return;
+}
+
+// function
+Resumable coro_factory() {
+    std::string s = "woof\n";
+    Resumable res = coroutine(s);
+    return res;
+}
+
+int main()
+{
+    Resumable coro = coro_factory();
+    
+    coro.resume();
+    
+    return 0;
+}
+```
 #
 ### ...work in progress
