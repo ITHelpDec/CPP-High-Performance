@@ -180,4 +180,12 @@ Take advantage of `operator()` to form a lambda member coroutine, or `auto ...` 
 [generator.cpp](generator.cpp)
 
 #
+### Lerp derp
+Some nice examples of eager vs lazy evaluation, based off a function using C++20's `std::lerp`:
+* [Eagerly generate and return all values](eager.cpp)
+* [Using a callback (lazy)](callback.cpp)
+* [Using a custom iterator (lazy)](iterator.cpp)
+* [Using the Ranges library (lazy)](lazy_range.cpp)
+* [Using coroutines with our Generator class (lazy)](lazy_coro.cpp)
+#
 ### ...work in progress
