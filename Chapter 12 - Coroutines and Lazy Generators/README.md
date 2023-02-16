@@ -187,5 +187,13 @@ Some nice examples of eager vs lazy evaluation, based off a function using C++20
 * [Using a custom iterator (lazy)](iterator.cpp)
 * [Using the Ranges library (lazy)](lazy_range.cpp)
 * [Using coroutines with our Generator class (lazy)](lazy_coro.cpp)
+
+Next rant - it's all well and good providing examples of this eager and lazy evaluation, but if we say...
+> _"This implementation is very efficient."_ 
+
+...on page 429 for the custom iterator, then it would help to have a visible benchmark of how and why it's more efficient.
+
+I'll probably do one anyway, but the point still stands – make the how and why clear.
+
 #
 ### ...work in progress
