@@ -202,7 +202,7 @@ C++ is by default an "eager" language, so writing lazily (like in the "callback"
 These patterns, however, are commonplace in asynchronous code (which we will cover in the next chapter!), where coroutines can wrap (or even replace!) those callback-based API's.
 
 #
-### Gap encoding
+### Gap encoding / decoding
 A nice exampple of how generators can be used to create a compression algorithm, similar to what might be used in search engines as part of a data structture called an inverted index.
 
 [gap_encode_decode.cpp](gap_encode_decode.cpp)
