@@ -196,4 +196,10 @@ Next rant - it's all well and good providing examples of this eager and lazy eva
 I'll probably do one anyway, but the point still stands – make the how and why clear.
 
 #
+### Conclusion
+C++ is by default an "eager" language, so writing lazily (like in the "callback" version) may be odd to some.
+
+These patterns, however, are commonplace in asynchronous code (which we will cover in the next chapter!), where coroutines can wrap (or even replace!) those callback-based API's.
+
+#
 ### ...work in progress
