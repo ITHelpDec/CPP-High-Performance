@@ -196,10 +196,16 @@ Next rant - it's all well and good providing examples of this eager and lazy eva
 I'll probably do one anyway, but the point still stands – make the how and why clear.
 
 #
-### Conclusion
+### Takeaways
 C++ is by default an "eager" language, so writing lazily (like in the "callback" version) may be odd to some.
 
 These patterns, however, are commonplace in asynchronous code (which we will cover in the next chapter!), where coroutines can wrap (or even replace!) those callback-based API's.
+
+#
+### Gap encoding
+A nice exampple of how generators can be used to create a compression algorithm, similar to what might be used in search engines as part of a data structture called an inverted index.
+
+[gap_encode_decode.cpp](gap_encode_decode.cpp)
 
 #
 ### ...work in progress
