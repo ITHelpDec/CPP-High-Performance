@@ -207,5 +207,9 @@ A nice exampple of how generators can be used to create a compression algorithm,
 
 [gap_encode_decode.cpp](gap_encode_decode.cpp)
 
+We can then use __*variable byte encoding*__ so that smaller gaps are encoded with fewer bytes than larger gaps (switched off reading the code though - still haven't seen how it's more efficient than eager evluation...code attached below).
+
+[variable_byte.cpp](variable_byte.cpp)
+
 #
 ### ...work in progress
