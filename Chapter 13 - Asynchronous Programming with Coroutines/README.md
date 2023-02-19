@@ -32,7 +32,7 @@ The code is on the author's [GitHub](https://github.com/PacktPublishing/Cpp-High
 #
 
 ### Handling errors
-We can use a `std::variant` within the `Promise ` class to handle the three possible outcomes:
+We can use a `std::variant` within the `Promise` class to handle the three possible outcomes:
 * No value at all - `std::monostate`
 * A return value of type `T` - `T`
 * An exception - `std::exception_ptr`
@@ -48,4 +48,51 @@ std::variant<std::monostate, T, std::exception_ptr> result_;
 __*NB:*__ Implementing a promise type that contains both `return_void()` and `return_value()` generates a compilation error.
 
 #
+### Symmetric transfer
+We can use a technique called __*symmetric transfer*__ to avoid creating nested stack frames during continuation.
+```cpp
+auto await_suspend(std::experimental::coroutine_handle<Promise> h) noexcept
+{   // symmetric transfer
+    return h.promise().continuation_;
+}
+```
+> _"An optimization called tail call optimization is then guaranteed to happen by the compiler."_<br>
+> "_In our case, this means that the compiler will be able to transfer control directly to the continuation without creating a new nested call frame."_ – pg. 448
+
+#
+### Synchronously waiting for a task to complete
+> _"Once we call an asynchronous function that returns a Task, we need to co_await on it, or nothing will happen._"<br>
+> _"This is also the reason why we declare Task to be nodiscard: so that it generates a compilation warning if the return value is ignored, like this:"_ – pg. 450
+
+#
+### Implementing `sync_await()`
+Another function from [cppcoro](https://github.com/lewissbaker/cppcoro#sync_wait) that is jsut copy-pasta with no "this is why you want to use this feature / look at the improvement!".
+
+> _"Destroying a coroutine must only happen if the coroutine is in a suspended state."_ – pg. 454
+
+#
+### The end result...
+```cpp
+Task<int> height() { co_return 20; }
+Task<int>  width() { co_return 30; }
+Task<int>   area()
+{
+  co_return co_await height() * co_await width();
+}
+
+int main()
+{ // Dummy coroutines
+  Task<int> a = area();
+  int value = sync_wait(a);
+  std::cout << value;
+}
+```
+Three pages of boilerplate...to calculate an area...
+
+#
+### `boost::asio`
+Just because recruiters want to see use of boost.
+
+[boost_asio.cpp](boost_asio.cpp)
+
 ### ...work in progress
