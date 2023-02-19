@@ -30,4 +30,22 @@ In other words, "we want to plaster co_await everywhere like we do with auto".
 The code is on the author's [GitHub](https://github.com/PacktPublishing/Cpp-High-Performance-Second-Edition/blob/master/Chapter13/task.h) if you're interested - similar to other examples given in previous chapters, the example from the book at this stage is incomplete, so (whilst it might be a nice exercise in typing out the code) not being able to visualise and tweak a finished product is irritating (I promise I'll say nice things eventually!).
 
 #
+
+### Handling errors
+We can use a `std::variant` within the `Promise ` class to handle the three possible outcomes:
+* No value at all - `std::monostate`
+* A return value of type `T` - `T`
+* An exception - `std::exception_ptr`
+
+```cpp
+std::variant<std::monostate, T, std::exception_ptr> result_;
+```
+>_"The exception is captured by using the std::current_exception() function inside the function Promise::unhandled_exception()."_<br>
+> _"By storing a std::exception_ptr, we can later rethrow this exception in another context."_<br>
+> _"This is also the mechanism used when exceptions are passed between threads."_<br>
+> – pg. 445
+
+__*NB:*__ Implementing a promise type that contains both `return_void()` and `return_value()` generates a compilation error.
+
+#
 ### ...work in progress
