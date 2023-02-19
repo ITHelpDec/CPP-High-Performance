@@ -95,4 +95,15 @@ Just because recruiters want to see use of boost.
 
 [boost_asio.cpp](boost_asio.cpp)
 
+#
+### Wrapping a callback-based API
+Yet more boilerplate to print ["hello"](https://github.com/PacktPublishing/Cpp-High-Performance-Second-Edition/blob/master/Chapter13/asio_timer_coro.cpp)...
+
+#
+### `boost::asio` TCP Server
+An implementation of a TCP Server using `boost::asio` – `boost::asio` seems to be mentioned a lot when it comes to sockets, so this will probably be worth making a note of.
+
+[boost_server.cpp](boost_server.cpp)
+
+#
 ### ...work in progress
