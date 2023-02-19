@@ -212,4 +212,21 @@ We can then use __*variable byte encoding*__ so that smaller gaps are encoded wi
 [variable_byte.cpp](variable_byte.cpp)
 
 #
-### ...work in progress
+### Tips for performance
+This was mentioned earlier, but immediatley passing a coroutine to another thread is a quick hack to avoid memory on the heap.
+
+> _"However, I will not provide you with any benchmarks of coroutines in this book"_ – pg. 438
+
+This is a total buzzkill – at the time of editing, it's proven difficult benchmarks of lazy vs eager evaluation.
+
+> _"Coroutines that execute on the same thread can share state without using any locking primitives and can therefore avoid the performance overhead incurred by synchronizing multiple threads"_ – pg. 438
+
+#
+### Summary
+Interesting chapter.
+
+It will be interesting to see how I might implement coroutines into programmes that would benefit from lazy evaluation over eager evaluation.
+
+At the very least, it'll encourage me to try take advantage of more lazy evaluation techniques like with proxy objects from before.
+
+Again, though...still not enough "why?" and "how?" when it comes to tangible and visible performance benefits.
