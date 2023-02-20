@@ -21,7 +21,9 @@ boost::asio::awaitable<void> serve_client(boost::asio::ip::tcp::socket socket) {
             timer.expires_from_now(100ms);
             co_await timer.async_wait(boost::asio::use_awaitable);
         } catch (...) {
-            // Error or client disconnected break;
+            // Error or client disconnected
+            std::cout << "Client disconnected!\n";
+            break;
         }
     }
 }
