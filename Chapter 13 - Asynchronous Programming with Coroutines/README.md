@@ -105,5 +105,21 @@ An implementation of a TCP Server using `boost::asio` – `boost::asio` seems to
 
 [boost_server.cpp](boost_server.cpp)
 
+This was actually a really interesting exercise.
+
+Once we have the programme up and running (listening), we can use a telnet-style programme to attempt to make a connection through hte port of our choice – on macOS, I used netcat across multiple terminal instances, issuing the following command:
+```bash
+nc localhost 37259
+```
+Xcode allowed me to see all inbound / outbound connections, as well as packets sent, but what was most interesting was the sheer amount of energy and CPU power taken up by this simple programme without a `break` statement in the catch-all.
+
+Energy and CPU draw would be fine in the beginning, but would __*sky-rocket*__ the moment the client disconnected from the server!
+
+With one client disconnected, CPU usage would leap from 0% to over 50%, then 67% for 2 client disconnections, etc etc, all using high to very high energy usage - this is a big issue if left unaddressed.
+
+Including a `break` (or even a `co_return`) brings (and keeps) CPU usage / energy draw back down to 0% throughout, regardless of how many connections were open and closed.
+
+This is a simple, yet critical, section of the code.
+
 #
 ### ...work in progress
