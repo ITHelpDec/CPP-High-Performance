@@ -141,6 +141,6 @@ Bar the last example from `boost::asio`, this has (unfortunately) been my least 
 
 It feels like an extension of Chapter 12, only with more boilerplate, and the glorified "area" and "hello, world" examples were very disappointing.
 
-The whole premise of this book is "high performance" - I hate to sound scathing, but where is the performance?
+The whole premise of this book is "high performance" - I hate to sound scathing or flippant, but where is the performance?
 
 Let's see what the next chapter has in store.
