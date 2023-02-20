@@ -121,5 +121,26 @@ Including a `break` (or even a `co_return`) brings (and keeps) CPU usage / energ
 
 This is a simple, yet critical, section of the code.
 
+It is possible to use threads to serve multiple sessions concurrently, but _"the memory overhead if threads would set the limit ofnthe number of sessions substantially lower compared to this model using coroutines."_ – pg. 463
+
+Using the same thread means we do not need to lock shared resources.
+
 #
-### ...work in progress
+### Noteworthy quotations
+> _"Creating detached tasks using `boost::asio::co_spawn()`, ..., should be done with the utmost of caution."_<br>
+> _"A fairly new programming paradigm for avoiding detached work is called __*structured concurrency*__."_<br>
+> _"The key idea is to never allow some a child task to exceed the lifetime of its parent."_<br>
+> _"This makes it possible to pass local variables by reference to asynchronous child operations safely and with better performance"_ – pg. 463
+
+> _"Another important aspect is that asynchronous tasks should always be lazy (immediately suspended), so that continuations can be attached before any exceptions can be thrown."_<br>
+> _"This is also a requirement if you want to be able to cancel a task in a safe manner"_ – pg. 464
+
+#
+### Summary
+Bar the last example from `boost::asio`, this has (unfortunately) been my least favourite chapter of all.
+
+It feels like an extension of Chapter 12, only with more boilerplate, and the glorified "area" and "hello, world" examples were very disappointing.
+
+The whole premise of this book is "high performance" - I hate to sound scathing, but where is the performance?
+
+Let's see what the next chapter has in store.
