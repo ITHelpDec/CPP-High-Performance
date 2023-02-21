@@ -19,8 +19,19 @@ $$ Maximum\text{ }speedup = { 1 \over { {F}_ {par} \over n } + (1 - {F}_ {par} )
 
 #
 ### Implementing parallel `std::transform()`
+Here is the original implementation from Apple Clang:
+```cpp
+template <class _InputIt, class _OutputIt, class _UnaryOperation>
+_OutputIt transform(_InputIt __first, _InputIt __last, _OutputIt __result, _UnaryOperation __op) {
+    for (; __first != __last; ++__first, (void) ++__result)
+        *__result = __op(*__first);
+    return __result;
+}
+```
 
-[transform.cpp](transform.cpp)
+[naive_par_transform.cpp](naive_par_transform.cpp)
+
+> _"As you will see, there are no parallel algorithms presented in this chapter that can operate on input and output iterators."_ – pg. 470
 
 #
 ### ...work in progress
