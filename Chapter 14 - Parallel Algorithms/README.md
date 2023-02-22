@@ -69,5 +69,6 @@ Other examples of _Divide and Conquer_ algorithms would be the likes of:
 
 [divide_and_conquer.cpp](divide_and_conquer.cpp) | [divide_and_benchmark.cpp](divide_and_benchmark.cpp)
 
+It's a shame GitHub doesn't have good barchart markdown - would have been nice to convert the results in the benchmark into something visual (here's a link to [quick-bench](https://quick-bench.com/q/V_Nf8u0ZOIIs2y_LfGjebjCMwQQ) anyway).
 #
 ### ...work in progress
