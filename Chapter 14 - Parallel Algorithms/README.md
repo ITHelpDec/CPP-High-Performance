@@ -56,5 +56,18 @@ In terms of the benchmark itself, just like the author I experienced similar if 
 
 [parallel_benchmark.cpp](parallel_benchmark.cpp)
 
+One of the pitfalls for this implementation is that it would only scale well if all chunk sizes were the same - in real life, though, this is apparently rarely the case.
+
+#
+### Divide and Conquer
+An interesting name for a sub-chapter - you would frequently see divide and conquer employed in recurise functions like merge sort, which recursively (and logarithmically in this case) _divides_ itself into base cases, _conquers_ said base cases then _combines_ the sub-tasks into one final solution.
+
+Other examples of _Divide and Conquer_ algorithms would be the likes of:
+* Substitution method
+* [Recusion-tree and "Master" methods](https://www.cs.cornell.edu/courses/cs3110/2012sp/lectures/lec20-master/lec20.html)
+* [Akra-Bazzi method](https://www.isa-afp.org/browser_info/current/AFP/Akra_Bazzi/document.pdf)
+
+[divide_and_conquer.cpp](divide_and_conquer.cpp) | [divide_and_benchmark.cpp](divide_and_benchmark.cpp)
+
 #
 ### ...work in progress
