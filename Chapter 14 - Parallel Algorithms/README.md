@@ -17,7 +17,7 @@ $$ Maximum\text{ }speedup = { 1 \over { {F}_ {par} \over n } + (1 - {F}_ {par} )
 
 ...where ${F}_ {par}$ is the fraction of the programme that can be executed in parallel.
 
-Better examples of how to calculate ${F}_ {par}$ for a function would be appreciated, instead of a paper with 50% on it.
+Better examples of how to calculate ${F}_ {par}$ for a function would have gone down well.
 
 #
 ### Implementing parallel `std::transform()`
@@ -73,7 +73,7 @@ It's a shame GitHub doesn't have good barchart markdown - would have been nice t
 
 #
 ### Applying divide and conquer to `std::count_if`
-A similar logarithmic pattern here with `std::count_if`, this time named `par::count_if` – I'll have to construct a benchmark of how both compare in terms of performance.
+A similar logarithmic pattern here with `std::count_if`, this time named `par::count_if` (thought it might be cleaner to give the parallel functions their own namepsace with a similar function name instead of a longer function name) – I'll have to construct a benchmark of how both compare in terms of performance.
 
 The chunk-calculating helper function is a nice abstraction, allowing you to either specify the chunk size manually or allow the hardware to decide.
 
