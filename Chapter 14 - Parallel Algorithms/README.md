@@ -70,5 +70,14 @@ Other examples of _Divide and Conquer_ algorithms would be the likes of:
 [divide_and_conquer.cpp](divide_and_conquer.cpp) | [divide_and_benchmark.cpp](divide_and_benchmark.cpp)
 
 It's a shame GitHub doesn't have good barchart markdown - would have been nice to convert the results in the benchmark into something visual (here's a link to [quick-bench](https://quick-bench.com/q/V_Nf8u0ZOIIs2y_LfGjebjCMwQQ) anyway).
+
+#
+### Applying divide and conquer to `std::count_if`
+A similar logarithmic pattern here with `std::count_if`, this time named `par::count_if` – I'll have to construct a benchmark of how both compare in terms of performance.
+
+The chunk-calculating helper function is a nice abstraction, allowing you to either specify the chunk size manually or allow the hardware to decide.
+
+[divide_and_count_if.cpp](divide_and_count_if.cpp)
+
 #
 ### ...work in progress
