@@ -101,5 +101,13 @@ We can split the algorithm into two seperate parts - one part copying, the other
 
 [par_copy_n_move.cpp](par_copy_n_move.cpp)
 
+This version of the `copy_if` algorithm performs a lot better in benchmarks compared to the other one for the following reason:
+
+> _" it is because the cache mechanism of the hardware is trashed due to several threads writing to the same cache line"_ – pg. 486
+
+Based on this statement (and the reference to Chapter 7), maybe we could find a way to align our chunks in such a way that the same cache line isn't thrahed like in the example (maybe that would be an interesting exercise at some point).
+
+Parallel standard library algorithms
+
 #
 ### ...work in progress
