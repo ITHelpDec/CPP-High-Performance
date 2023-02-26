@@ -80,4 +80,22 @@ The chunk-calculating helper function is a nice abstraction, allowing you to eit
 [divide_and_count_if.cpp](divide_and_count_if.cpp)
 
 #
+### Applying parallelism to `std::copy_if`
+Below is how `std::copy_if` is written in the standard library.
+```cpp
+template <typename _InputIt, typename _OutputIt, typename _Predicate>
+_OutputIt copy_if(_InputIt __first, _InputIt __last, _OutputIt __result, _Predicate __pred) {
+    for (; __first != __last; ++__first) {
+        if (__pred(*__first)) {
+            *__result = *__first;
+            ++__result;
+        }
+    } return __result;
+}
+```
+Tweaking this algorithm to run in parallel is slightly more difficult than the last two, as this time we have we have a mutable iterator that needs to work concurrently.
+
+[par_copy_if.cpp](par_copy_if.cpp)
+
+#
 ### ...work in progress
