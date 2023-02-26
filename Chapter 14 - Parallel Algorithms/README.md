@@ -97,5 +97,9 @@ Tweaking this algorithm to run in parallel is slightly more difficult than the l
 
 [par_copy_if.cpp](par_copy_if.cpp)
 
+We can split the algorithm into two seperate parts - one part copying, the other part moving.
+
+[par_copy_n_move.cpp](par_copy_n_move.cpp)
+
 #
 ### ...work in progress
