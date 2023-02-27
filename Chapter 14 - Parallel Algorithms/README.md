@@ -149,4 +149,48 @@ This will not work in situations where you might be sorting a string as `abc` +=
 ```
 
 #
-### ...work in progress
+### `std::transofrm_reduce`
+A nice example of `std::transform_reduce` to calculate the cumulative number of chars is a vector of strings:
+```cpp
+std::vector<std::string> svec = { "man", "bear", "pig" };
+    
+    std::size_t num_chars = std::transform_reduce(svec.begin(), svec.end(), 0,
+                                                  [] (std::size_t a, std::size_t b) { return a + b; },  // reduce
+                                                  [] (const std::string &str) { return str.size(); } ); // transform
+```
+For a few elements, [`std::transform` is 1.2x faster than `std::accumulate`](https://quick-bench.com/q/pM19yT8oecHCUISfgL_01tzRKY0) – it would be interesting to see how much of a different a much larger vector of strings would have on runtime.
+
+#
+### `std::for_each`
+`std::for_each` returns the function object passed to it - this can be useful for accumulating values inside a stateful function object.
+
+The parallel version of `std::for_each` returns `void`.
+
+There are some other bits on using `std::views::iota` to create a hard-coded parallel `for` loop, but I'll pass.
+
+#
+### Coding for GPU's
+The workflow is as follows:
+* CPU allocates memory on the GPU
+* Data is copied from main memory to GPU memory
+* CPU launches a kernel on the GPU
+* Data is copied back to the CPU
+
+Execution polocies `std::execution::par` and `std::execution::par_unseq` allow compilers to move the execution of standard algorithms from the CPU to the GPU
+
+This was a stupid end to the chapter, dangling the carrot to how to write an algorithm that can be executed on a GPU, but it was just blurb and links.
+
+#
+### Summary
+
+> _"I will keep updating the GitHub repository and adding information about compiler support"_
+
+The only updates on the GitHub repo have been price updates for the eBook- no issues have been addressed in the last three since publishing.
+
+Despite this, this has definitely been one of the better chapters. Again, like many other features, execution policies aren't widely-accepted, but learning the divide and conquer technique across both immutable __and__ mutable containers is invaluable, the Google Benchmark techniques used were very useful, and learning `std::reduce` / `std::reduce_transform` will now doubt be a very useful tool in the toolbox.
+
+I'm glad the book ended on a high note, as I was really started to lose interest.
+
+I'd give it a 5/10 - with better examples, the material would have been both much more applicable, as well as much more memorable. This combined with the overly-C++20 style of writing and poor use of whitespace probably made this book harder to follow at times than it needed to be.
+
+I hope the author continues to write though, and perhaps introduces another performance-oriented book.
