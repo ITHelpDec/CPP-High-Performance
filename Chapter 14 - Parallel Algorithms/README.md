@@ -107,7 +107,46 @@ This version of the `copy_if` algorithm performs a lot better in benchmarks comp
 
 Based on this statement (and the reference to Chapter 7), maybe we could find a way to align our chunks in such a way that the same cache line isn't thrahed like in the example (maybe that would be an interesting exercise at some point).
 
-Parallel standard library algorithms
+#
+### Parallel standard library algorithms
+As of C++17, we can get an istant performance boost with STL algorithms by using execution policies e.g.
+```cpp
+std::sort(std::execution::par, ivec.begin(), ivec.end());
+```
+* std::execution::par (par for parallel)
+* std::execution::seq (the normal sequantial policy)
+* std::execution::unseq (allow the algorithm to be vectorised)
+* std::execution::par_unseq (allow the vector to be vectorised __*and*__ parallel)
+
+There are three things to bear in mind with execution policies:
+1) Iterators are forward iterators
+2) Exceptions thrown cannot be reached - instead `std::terminate` is called.
+3) Time complexity guarantees are also more relaxed
+
+With all parallel work, you must ensure your code is thread-safe e.g. do not use mutable references in a lambda capture list, or you run hte risk of a data race - use `std::transform_reduce` or `std::reduce` instead:
+```cpp
+❌: std::for_each(std::execution::par, svec.begin(), svec.end() [&] (const std::string &str) { counter += str.size(); } );
+✅: std::reduce(std::execution::par, svec.begin(), svec.end() [] (std::size_t local_counter, const std::string &str) { local_counter += str.size(); } );
+```
+
+We could also use `std::atomic` or `std::mutex`, but this would degrade efficiency.
+
+You cannot use synchronisation primitives with std::execution::unseq, as this will run the risk of creating deadlocks.
+
+[Nvidia](https://developer.nvidia.com/blog/accelerating-standard-c-with-gpus-using-stdpar/) take advantage of execution policies in their in-house compiler, `nvc++`.
+
+#
+### `std::accumulate` and `std::reduce`
+Where operations are commutative (think ["group theory"](https://en.wikipedia.org/wiki/Commutative_property)), we can use `std::reduce` in place of `std::accumulate` to achieve faster results.
+```cpp
+❌: std::accumulate(ivec.begin(), ivec.end(), 0);
+✅: std::reduce(ivec.begin(), ivec.end(), 0);
+```
+This will not work in situations where you might be sorting a string as `abc` += `cba`:
+```cpp
+✅: std::accumulate(svec.begin(), svec.end(), std::string());
+❌: std::reduce(svec.begin(), svec.end(), std::string());
+```
 
 #
 ### ...work in progress
