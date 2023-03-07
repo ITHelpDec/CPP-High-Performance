@@ -149,7 +149,7 @@ This will not work in situations where you might be sorting a string as `abc` +=
 ```
 
 #
-### `std::transofrm_reduce`
+### `std::transform_reduce`
 A nice example of `std::transform_reduce` to calculate the cumulative number of chars is a vector of strings:
 ```cpp
 std::vector<std::string> svec = { "man", "bear", "pig" };
