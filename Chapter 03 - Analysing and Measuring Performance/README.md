@@ -73,3 +73,7 @@ See the code below for example outputs.
 By far the most interesting part of this chapter has been Google Benchmark.
 
 I feel even more examples could have been given (even a few leetcode examples), and maybe a run through of how to [plot the results](https://github.com/lakshayg/google_benchmark_plot), but this has been a good introduction to what we can achieve with microbenchmarking software.
+#
+### If you've found anything from this repo useful, please consider contributing towards the only thing that makes it all possible – my unhealthy relationship with 90+ SCA score coffee beans.
+
+<a href="https://www.buymeacoffee.com/ITHelpDec"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=ITHelpDec&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
