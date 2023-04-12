@@ -250,3 +250,7 @@ Quite a good chapter.
 I'll need to experiment more with `std::optional`; structured bindings are a gift (but I've been using them for a while); tuples were covered in great detail (plenty of useful things in there); variants look to be a better union(?), but even if they aren't, at least we now know how to iterate through them.
 
 Definitely one of the better chapters.
+#
+### If you've found anything from this repo useful, please consider contributing towards the only thing that makes it all possible – my unhealthy relationship with 90+ SCA score coffee beans.
+
+<a href="https://www.buymeacoffee.com/ITHelpDec"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=ITHelpDec&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
