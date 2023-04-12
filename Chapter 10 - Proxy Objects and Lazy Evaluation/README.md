@@ -103,3 +103,7 @@ auto operator|(const Range& r, const ContainsProxy<T>& proxy) { /*...*/ }
 Bit of a disapponting end to the chapter
 
 One interesting example of how to rethink operators, such that they provide improved efficiency without interfering with front-end syntax, but that was about it – expected more from this chapter.
+#
+### If you've found anything from this repo useful, please consider contributing towards the only thing that makes it all possible – my unhealthy relationship with 90+ SCA score coffee beans.
+
+<a href="https://www.buymeacoffee.com/ITHelpDec"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=ITHelpDec&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
