@@ -30,7 +30,7 @@ std::erase_if(v, [] (const int &x) { return x < 0; } );
 ### Smarter use of std::array
 [array.cpp](array.cpp)
 #
-### std::basic_string
+### `std::basic_string`
 The biggest change recently has been from C++17.
 
 > _"Historically, std::basic_ string was not guaranteed to be laid out contiguously in memory. This changed with C++17, which makes it possible to pass the string to APIs that require an array of characters"_ – pg. 109
@@ -122,3 +122,7 @@ Source code available on author's GitHub.
 #
 ### Summary
 Really interesting chapter – I'm looking forward to learning more about std::string_view and temporal / spatial locality.
+#
+### If you've found anything from this repo useful, please consider contributing towards the only thing that makes it all possible – my unhealthy relationship with 90+ SCA score coffee beans.
+
+<a href="https://www.buymeacoffee.com/ITHelpDec"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=ITHelpDec&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
