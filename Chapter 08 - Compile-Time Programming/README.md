@@ -267,3 +267,7 @@ std::size_t hash_function(std::string_view s) {
 Really interesting chapter.
 
 Nothing new gained from what was covered in template metaprogamming, and `concepts` was grazed over (still feels like syntactic sugar), but `constexpr` / `if constexpr`, `consteval`, `type_traits` and `static_assert`'s alongside compile-time evaluation will prove invaluable for offloading what would normally be an expensive operation at runtime to something we can pre-calculate at compile-time, thus hopefully making our programmes much faster.
+#
+### If you've found anything from this repo useful, please consider contributing towards the only thing that makes it all possible – my unhealthy relationship with 90+ SCA score coffee beans.
+
+<a href="https://www.buymeacoffee.com/ITHelpDec"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=ITHelpDec&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
