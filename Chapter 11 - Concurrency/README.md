@@ -324,3 +324,7 @@ A lot of features were covered, and some decent examples were given, but there's
 Another instance of where more time could be spent on the "why" and the "how" - with so many features, why use one over the other? Could instances be written with all of the different techniques producing the same or similar effects, maybe comparing pro's and con's of each, or which one would be more suitable for this real-life task?
 
 Show an input, show an output - help the reader with visualising how to understand the task at hand.
+#
+### If you've found anything from this repo useful, please consider contributing towards the only thing that makes it all possible – my unhealthy relationship with 90+ SCA score coffee beans.
+
+<a href="https://www.buymeacoffee.com/ITHelpDec"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=ITHelpDec&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
