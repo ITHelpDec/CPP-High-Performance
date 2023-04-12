@@ -194,3 +194,7 @@ I'm glad the book ended on a high note, as I was really started to lose interest
 I'd give it a 5/10 - with better examples, the material would have been both much more applicable, as well as much more memorable. This combined with the overly-C++20 style of writing and poor use of whitespace probably made this book harder to follow at times than it needed to be.
 
 I hope the author continues to write though, and perhaps introduces another performance-oriented book.
+#
+### If you've found anything from this repo useful, please consider contributing towards the only thing that makes it all possible – my unhealthy relationship with 90+ SCA score coffee beans.
+
+<a href="https://www.buymeacoffee.com/ITHelpDec"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=ITHelpDec&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
